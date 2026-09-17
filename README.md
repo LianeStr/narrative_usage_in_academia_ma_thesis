@@ -82,6 +82,8 @@ notebooks/kaggel/full-run-dbscan-sb-11.ipynb
 ## Visualisaation of the Results
 ### kDist BERT vs SciBERT
 notebooks/visualisations/vis_kDist_sample.ipynb
+### DBCV, noise, largest cluster, nr of clusters
+notebooks/06d_vis_cluster.ipynb 
 ### Sample vs Full
 notebooks/06e_sample_vs_full_KDist.ipynb
 
