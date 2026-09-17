@@ -1,0 +1,30 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+
+# data
+data/embeddings/*
+data/enriched/*
+data/filtered_out/*
+data/mentions/*
+data/results/*
+data/sample/*
+data/raw/*
+data/processed/*
+data/enriched/*
+data/enriched_V2/*
+data/enriched_V1/*
+data/filtered_out/*
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+.ipynb_checkpoints/
+
+# logins
+keys.py
