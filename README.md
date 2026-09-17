@@ -79,13 +79,29 @@ notebooks/kaggel/full-run-dbscan-bb-12.ipynb
 notebooks/kaggel/full-run-dbscan-sb-11-adjusted.ipynb
 notebooks/kaggel/full-run-dbscan-sb-11.ipynb
 
-## Visualisaation of the Results
+## Clustering Results
+results/dbscan_full/full_clustering_results_bert-base_layer_12.json
+results/dbscan_full/full_clustering_results_bert-base_layer_12_adjusted.json
+results/dbscan_full/full_clustering_results_scibert_layer_11.json
+results/dbscan_full/full_clustering_results_scibert_layer_11_adjusted.json
+results/dbscan_sample/clustering_results_bert-base_layer_11.json
+results/dbscan_sample/clustering_results_bert-base_layer_12.json
+results/dbscan_sample/clustering_results_bert-base_mean.json
+results/dbscan_sample/clustering_results_scibert_layer_11.json
+results/dbscan_sample/clustering_results_scibert_layer_12.json
+results/dbscan_sample/clustering_results_scibert_layer_mean.json
+
+
+## Visualisation of the Results
 ### kDist BERT vs SciBERT
 notebooks/visualisations/vis_kDist_sample.ipynb
 ### DBCV, noise, largest cluster, nr of clusters
 notebooks/06d_vis_cluster.ipynb 
 ### Sample vs Full
 notebooks/06e_sample_vs_full_KDist.ipynb
+
+
+# Visualisations for the Thesis
 
 
 
