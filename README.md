@@ -33,5 +33,11 @@ Input: data/einriched/filtered
 Output: data/mentions
 Log: data/mentions/processing_log.jsonl
 
+# Retrieve Contextualized Word Embeddings
+Run in kaggle:
+notebooks/kaggle/get_embeddings_bert-base.ipynb
+notebooks/kaggle/get_embeddings_scibert.ipynb
+Input and Output info in local README
 
+# 
 
