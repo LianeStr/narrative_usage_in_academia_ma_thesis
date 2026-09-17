@@ -46,3 +46,9 @@ notebooks/sample.ipynb
 ## Get Sampled Embeddings in Kaggle
 notebooks/kaggel/create-embeddings-samples-bertbase.ipynb
 notebooks/kaggel/create-embeddings-samples-scibert.ipynb
+
+
+# Create K-Distance Graph
+## Full Dataset 
+
+## Sample
