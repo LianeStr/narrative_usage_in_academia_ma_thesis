@@ -49,6 +49,11 @@ notebooks/kaggel/create-embeddings-samples-scibert.ipynb
 
 
 # Create K-Distance Graph
-## Full Dataset 
+## Full Dataset (Kaggle)
+notebooks/kaggel/sorted-k-dist-graph.ipynb
 
-## Sample
+## Sample (Kaggle)
+notebooks/kaggel/bert-base-sample-tuning-kdist.ipynb
+notebooks/kaggel/bert-base-sample-tuning-kdist.ipynb
+
+

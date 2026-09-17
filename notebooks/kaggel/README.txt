@@ -29,6 +29,11 @@ data/sample/sample_tuning_10per.json
 data/embeddings/bert-base/chunks
 
 #####################################
+scibert-sample-tuning-kdist.ipynb
+input: 
+data/sample/sample_tuning_10per.json
+data/embeddings/scibert/chunks
+#####################################
 all the clustering runs on the sample:
 sample-tuning-dbscan-bb-12.ipynb
 sample-tuning-dbscan-bb-mean.ipynb
