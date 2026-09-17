@@ -39,5 +39,10 @@ notebooks/kaggle/get_embeddings_bert-base.ipynb
 notebooks/kaggle/get_embeddings_scibert.ipynb
 Input and Output info in local README
 
-# 
 
+# Create Sample for Tuning of Clustering Parameters
+notebooks/sample.ipynb
+
+## Get Sampled Embeddings in Kaggle
+notebooks/kaggel/create-embeddings-samples-bertbase.ipynb
+notebooks/kaggel/create-embeddings-samples-scibert.ipynb
