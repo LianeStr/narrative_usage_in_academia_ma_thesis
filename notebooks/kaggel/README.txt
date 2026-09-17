@@ -50,3 +50,15 @@ for sb (scibert):
 data/embeddings/sci_bert/chunks/
 
 #####################################
+all the clustering runs on full dataset:
+notebooks/kaggel/full-run-dbscan-bb-12-adjusted.ipynb
+notebooks/kaggel/full-run-dbscan-bb-12.ipynb
+notebooks/kaggel/full-run-dbscan-sb-11-adjusted.ipynb
+notebooks/kaggel/full-run-dbscan-sb-11.ipynb
+
+input: 
+for bb (bert-base):
+data/embeddings/bert-base/chunks
+for sb (scibert):
+data/embeddings/sci_bert/chunks/
+#####################################

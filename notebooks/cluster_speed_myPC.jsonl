@@ -1,0 +1,5 @@
+{"sample_size": 500, "start_time": "2026-08-19T19:16:05.559686", "end_time": "2026-08-19T19:16:05.768127", "elapsed_seconds": 0.2, "epsilon": 0.2, "minPts": 380, "cluster_dist": {"-1": 500}}
+{"sample_size": 5000, "start_time": "2026-08-19T19:16:05.768178", "end_time": "2026-08-19T19:16:06.736649", "elapsed_seconds": 1.0, "epsilon": 0.2, "minPts": 380, "cluster_dist": {"-1": 3889, "0": 1111}}
+{"sample_size": 10000, "start_time": "2026-08-19T19:16:06.736673", "end_time": "2026-08-19T19:16:09.788924", "elapsed_seconds": 3.1, "epsilon": 0.2, "minPts": 380, "cluster_dist": {"-1": 4237, "0": 5763}}
+{"sample_size": 20000, "start_time": "2026-08-19T19:16:09.788946", "end_time": "2026-08-19T19:16:21.119558", "elapsed_seconds": 11.3, "epsilon": 0.2, "minPts": 380, "cluster_dist": {"-1": 5041, "0": 14578, "1": 381}}
+{"sample_size": 50000, "start_time": "2026-08-19T19:16:21.119585", "end_time": "2026-08-19T19:17:20.505744", "elapsed_seconds": 59.4, "epsilon": 0.2, "minPts": 380, "cluster_dist": {"0": 43565, "-1": 6435}}

@@ -1,0 +1,8 @@
+{"sample_size": 500, "start_time": "2026-08-19T17:50:27.843278", "end_time": "2026-08-19T17:50:28.487844", "elapsed_seconds": 0.6, "epsilon": 0.2, "minPts": 380, "cluster_dist": {"-1": 500}}
+{"sample_size": 5000, "start_time": "2026-08-19T17:50:28.487879", "end_time": "2026-08-19T17:50:29.711013", "elapsed_seconds": 1.2, "epsilon": 0.2, "minPts": 380, "cluster_dist": {"-1": 3889, "0": 1111}}
+{"sample_size": 10000, "start_time": "2026-08-19T17:50:29.711044", "end_time": "2026-08-19T17:50:32.744828", "elapsed_seconds": 3.0, "epsilon": 0.2, "minPts": 380, "cluster_dist": {"-1": 4237, "0": 5763}}
+{"sample_size": 20000, "start_time": "2026-08-19T17:50:32.744862", "end_time": "2026-08-19T17:50:47.911815", "elapsed_seconds": 15.2, "epsilon": 0.2, "minPts": 380, "cluster_dist": {"-1": 5041, "0": 14578, "1": 381}}
+{"sample_size": 40000, "start_time": "2026-08-19T17:50:47.911848", "end_time": "2026-08-19T17:51:47.243335", "elapsed_seconds": 59.3, "epsilon": 0.2, "minPts": 380, "cluster_dist": {"0": 34011, "-1": 5989}}
+{"sample_size": 60000, "start_time": "2026-08-19T17:51:47.243372", "end_time": "2026-08-19T17:54:02.645091", "elapsed_seconds": 135.4, "epsilon": 0.2, "minPts": 380, "cluster_dist": {"0": 53649, "-1": 6351}}
+{"sample_size": 80000, "start_time": "2026-08-19T17:54:02.645132", "end_time": "2026-08-19T17:58:08.372792", "elapsed_seconds": 245.7, "epsilon": 0.2, "minPts": 380, "cluster_dist": {"0": 73518, "-1": 6482}}
+{"sample_size": 100000, "start_time": "2026-08-19T17:58:08.372832", "end_time": "2026-08-19T18:04:34.788741", "elapsed_seconds": 386.4, "epsilon": 0.2, "minPts": 380, "cluster_dist": {"0": 93319, "-1": 6681}}

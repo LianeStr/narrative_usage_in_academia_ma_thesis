@@ -56,4 +56,35 @@ notebooks/kaggel/sorted-k-dist-graph.ipynb
 notebooks/kaggel/bert-base-sample-tuning-kdist.ipynb
 notebooks/kaggel/bert-base-sample-tuning-kdist.ipynb
 
+# DBSCAN Parammeter Tuning
+## Runtime Estimation (Kaggle)
+notebooks/paper_vis/Testing_Runtime_dbscan.ipynb
+
+data:
+notebooks/cluster_speed_kaggle.jsonl
+notebooks/cluster_speed_kaggle_larger.jsonl
+notebooks/cluster_speed_myPC.jsonl
+
+## Sample (Kaggle)
+notebooks/kaggel/sample-tuning-dbscan-bb-11.ipynb
+notebooks/kaggel/sample-tuning-dbscan-bb-12.ipynb
+notebooks/kaggel/sample-tuning-dbscan-bb-mean.ipynb
+notebooks/kaggel/sample-tuning-dbscan-sb-11.ipynb
+notebooks/kaggel/sample-tuning-dbscan-sb-12.ipynb
+notebooks/kaggel/sample-tuning-dbscan-sb-mean.ipynb
+
+## Full Dataset (Kaggle)
+notebooks/kaggel/full-run-dbscan-bb-12-adjusted.ipynb
+notebooks/kaggel/full-run-dbscan-bb-12.ipynb
+notebooks/kaggel/full-run-dbscan-sb-11-adjusted.ipynb
+notebooks/kaggel/full-run-dbscan-sb-11.ipynb
+
+## Visualisaation of the Results
+### kDist BERT vs SciBERT
+notebooks/visualisations/vis_kDist_sample.ipynb
+### Sample vs Full
+notebooks/06e_sample_vs_full_KDist.ipynb
+
+
+
 
