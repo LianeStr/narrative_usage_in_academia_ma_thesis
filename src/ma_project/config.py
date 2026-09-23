@@ -1,9 +1,10 @@
+# semanticscholar.py
 QUERY = '"narrative"'
 YEAR_RANGE = "2015-2025" # to 2018 for over 100.000 results
 FIELDS_SEMSCHO = "title,year,authors,citationCount,abstract,fieldsOfStudy,url,publicationTypes,venue,externalIds"
-
-
 RAW_DATA_PATH = "data/raw/"
+
+
 PROCESSED_DATA_PATH = "data/processed"
 
 RESULTS_PATH = "results/"

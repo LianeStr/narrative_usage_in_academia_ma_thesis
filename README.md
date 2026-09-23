@@ -6,6 +6,20 @@ Run the scripts with:
 uv run python src/ma_project/semanticscholar.py
 ```
 
+Flags that override `config.py`:
+
+```bash
+uv run python semanticscholar.py --query "machine learning"
+uv run python semanticscholar.py --year-range "2015-2025"
+uv run python semanticscholar.py --output-dir "data/raw"
+uv run python semanticscholar.py --verbose
+```
+
+**Expected Scripts:**
+
+* `config.py` — to set `YEAR_RANGE`, `FIELDS_SEMSCHO`, `RAW_DATA_PATH`
+* `key.py` — OPTIONAL to store the API keys (`API_KEY_OPENALEX`, `API_KEY_SEMSCHO`)
+
 # Dataset Creation
 
 ## Search Narrative Papers
@@ -198,6 +212,9 @@ notebooks/06e_sample_vs_full_KDist.ipynb
 
 # Visualisations for the Thesis
 
+```text
+notebooks/paper_vis
+```
 
 
 
