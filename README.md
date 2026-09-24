@@ -6,20 +6,6 @@ Run the scripts with:
 uv run python src/ma_project/semanticscholar.py
 ```
 
-Flags that override `config.py`:
-
-```bash
-uv run python semanticscholar.py --query "machine learning"
-uv run python semanticscholar.py --year-range "2015-2025"
-uv run python semanticscholar.py --output-dir "data/raw"
-uv run python semanticscholar.py --verbose
-```
-
-**Expected Scripts:**
-
-* `config.py` — to set `YEAR_RANGE`, `FIELDS_SEMSCHO`, `RAW_DATA_PATH`
-* `key.py` — OPTIONAL to store the API keys (`API_KEY_OPENALEX`, `API_KEY_SEMSCHO`)
-
 # Dataset Creation
 
 ## Search Narrative Papers
@@ -29,6 +15,22 @@ Script:
 ```text
 src/ma_project/semanticscholar.py
 ```
+
+Flags that override `config.py`:
+
+```bash
+uv run python semanticscholar.py --query "narrative"
+uv run python semanticscholar.py --year-range "2015-2025"
+uv run python semanticscholar.py --output-dir "data/raw"
+uv run python semanticscholar.py --verbose
+```
+
+**Expected Scripts:**
+
+* `src/ma_project/config.py` — to set `YEAR_RANGE`, `FIELDS_SEMSCHO`, `RAW_DATA_PATH`
+* `src/ma_project/key.py` — OPTIONAL to store the API keys (`API_KEY_OPENALEX`, `API_KEY_SEMSCHO`)
+
+**Log:** `data/raw/run_log.jsonl`
 
 ## Filter Semantic Scholar Results
 
@@ -42,8 +44,8 @@ src/ma_project/filter.py
 
 **Output:**
 
-* `data/processed` — papers that were kept
-* `data/filtered_out` — papers that were filtered out
+* `data/processed` — papers that were kept in batches of 100_000
+* `data/filtered_out` — papers that were filtered out (langdetect, narrative review ngram, no doi)
 
 **Log:** `data/processed/preprocess_log.jsonl`
 
