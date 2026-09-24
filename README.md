@@ -123,12 +123,31 @@ Input and output information is provided in the local README.
 notebooks/sample.ipynb
 ```
 
+**Input:** 
+```text
+data/mentions/narrative_mentions.jsonl
+data/embeddings/bert-base/progress.json
+data/enriched/filtered/enriched_batch_*.jsonl
+```
+
+**Output:** data/sample/sample_tuning_10per.json
+
 ## Get Sampled Embeddings in Kaggle
 
 ```text
 notebooks/kaggle/create-embeddings-samples-bertbase.ipynb
+- sample_bert_base_mean_last4.parquet
+- sample_bert_base_last.parquet
+- sample_bert_base_2nd_last.parquet
+
 notebooks/kaggle/create-embeddings-samples-scibert.ipynb
+- sample_scibert_base_mean_last4.parquet
+- sample_scibert_base_last.parquet
+- sample_scibert_base_2nd_last.parquet
 ```
+
+> **Note:** More infos in the local README.txt 
+('notebooks/kaggle/README.txt`)
 
 # Create K-Distance Graph
 
