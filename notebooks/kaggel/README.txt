@@ -1,11 +1,11 @@
 #####################################
-getembeddings_bert-base.ipynb 
+get_embeddings_bert-base.ipynb 
 input: data/mentions/narrative_mentions.jsonl
 output in: data/embeddings/bert-base/
 run on 24.08.2026 
 runtime & processors: 51m 49s · GPU T4 x2
 #####################################
-getembeddings_scibert.ipynb 
+get_embeddings_scibert.ipynb 
 input: data/mentions/narrative_mentions.jsonl
 output in: data/embeddings/scibert/
 run on 27.08.2026 
