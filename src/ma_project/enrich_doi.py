@@ -1,9 +1,219 @@
 """
-Enriches papers with a DOI using the OpenAlex API.
-Uses batch DOI lookup (up to 100 DOIs per request, URL-length aware).
+Enrich processed Semantic Scholar paper records with metadata from OpenAlex.
 
-Usage:
-    uv run enrich_doi.py
+This module reads processed paper records from JSONL batch files, looks up papers
+with a DOI using the OpenAlex API, and enriches matching records with metadata
+provided by OpenAlex. Abstracts are sourced preferentially from the existing
+Semantic Scholar record and fall back to the abstract reconstructed from the
+OpenAlex inverted-index representation.
+
+The pipeline is designed for large datasets and processes records incrementally
+in DOI batches rather than issuing one API request per paper. OpenAlex requests
+are further split into URL-safe sub-batches to remain below the API's URL-length
+limit. Enriched records are written to sequentially numbered JSONL batch files.
+
+For each input record, the following operations are performed in order:
+
+1. Read processed paper records from JSONL batch files.
+2. Select records that contain a DOI and have not already been enriched.
+3. Normalize DOI strings by removing URL prefixes, surrounding whitespace,
+   and converting them to lowercase.
+4. Group DOIs into API batches and split batches further when necessary to
+   remain below the configured URL-length limit.
+5. Query the OpenAlex `works` endpoint for each DOI batch.
+6. Match returned OpenAlex work objects to input papers using their normalized DOI.
+7. Extract the configured OpenAlex metadata fields from matching work objects.
+8. Prefer the existing Semantic Scholar abstract when available and otherwise
+   reconstruct the abstract from OpenAlex's inverted-index representation.
+9. Add `None` values for all OpenAlex-specific fields when no OpenAlex match
+   is found.
+10. Write the enriched paper record to the current JSONL output batch.
+11. Rotate the output file when the configured maximum number of records is reached.
+12. Record summary statistics and the processing configuration in
+    `enrich_doi_log.jsonl`.
+
+Previously unmatched papers are handled specially. If a run has no new papers
+to process, records from previous output batches that contain a DOI but have
+no `oa_id` are retried individually against OpenAlex. This allows temporary
+API failures or previously unavailable records to be retried without reprocessing
+the complete dataset.
+
+Input
+--------
+Processed input files are read from `processed_dir`.
+By default, this is `config.PROCESSED_DATA_PATH`.
+
+Input files must follow the naming convention:
+search_results_batch_*.jsonl
+
+Each non-empty line is expected to contain one processed paper record in JSON
+format. Records are expected to contain at least `paperId` and `doi` for
+OpenAlex enrichment to take place.
+
+Output
+--------
+Enriched records are written to `enriched_dir` using sequentially numbered
+JSONL files:
+
+```
+enriched_batch_1.jsonl
+enriched_batch_2.jsonl
+...
+```
+
+The maximum number of records per output file is controlled by
+`output_batch_size`.
+
+Each successfully matched record receives the configured OpenAlex metadata,
+including (not the complete list):
+
+`oa_id` (OpenAlex work identifier)
+
+`oa_language` (Language recorded by OpenAlex)
+
+`oa_pdf_url`
+(PDF URL from the OpenAlex primary location, when available)
+
+`oa_topics`
+(OpenAlex topics including topic identifiers, names, scores, and
+subfield/field/domain names)
+
+`oa_keywords` (OpenAlex keywords and their scores)
+
+`oa_concepts` (OpenAlex concepts and their scores, excluding concepts with a zero score)
+
+`oa_has_pdf` (Whether OpenAlex reports PDF content for the work)
+
+`abstract`
+(Paper abstract. The existing Semantic Scholar abstract is preferred;
+otherwise the abstract is reconstructed from OpenAlex's inverted index)
+
+`abstract_source`
+(Indicates the source of the selected abstract: `semantic_scholar`,
+`openalex`, or `None`.)
+
+Records for which OpenAlex returns no matching work are still written to the
+output. All OpenAlex-specific fields listed in `EMPTY_OA_KEYS` are set to
+`None` so that matched and unmatched records have a consistent schema.
+
+Duplicate `paperId` values are not reprocessed when they are already present
+in the enriched output directory.
+
+Configuration
+----------
+The following module-level constants define the default enrichment configuration:
+
+`PROCESSED_DIR`
+Default input directory obtained from `config.PROCESSED_DATA_PATH`.
+
+`ENRICHED_DIR`
+Default output directory obtained from `config.ENRICHED_DATA_PATH` with
+the `doi` subdirectory appended.
+
+`BATCH_SIZE`
+Default maximum number of papers written to each output JSONL file.
+
+`DOI_BATCH`
+Default maximum number of DOIs submitted to an OpenAlex lookup batch.
+
+`SLEEP`
+Delay between OpenAlex API requests, used to limit request frequency.
+
+`OPENALEX_API_KEY`
+API key used to authenticate requests to OpenAlex. 
+Retrieved from the imported `key.py`
+
+`MAX_URL_BYTES`
+Conservative maximum URL length used when constructing OpenAlex DOI
+filter requests.
+
+The `run_enrichment` function accepts the input directory, output directory,
+output batch size, and DOI batch size as arguments. This allows the enrichment
+pipeline to be configured without modifying the implementation.
+
+OpenAlex API Requests
+--------
+OpenAlex DOI lookups use the `/works` endpoint with a pipe-separated DOI
+filter. Although OpenAlex supports up to 100 DOIs per request, the actual
+request size is also constrained by URL length. `fetch_openalex_works` therefore
+constructs sub-batches dynamically and ensures that requests remain below
+`MAX_URL_BYTES`.
+
+Malformed DOI values that do not begin with `10.` are skipped before an API
+request is made.
+
+API requests use a timeout and handle HTTP and network errors without aborting
+the complete enrichment run. A failed request produces no OpenAlex matches for
+that batch, allowing the affected records to be written as unmatched and
+potentially retried in a later run.
+
+A short delay is inserted between API requests to limit the request rate.
+
+Resuming and Retry Behavior
+--------
+The enrichment process is restartable.
+
+Before processing new records, `load_done_ids` scans existing enriched output
+files and collects their `paperId` values. Papers whose IDs are already
+present are skipped, preventing duplicate enrichment after an interrupted or
+repeated run.
+
+If no new papers remain, `load_failed_papers` identifies previously written
+records that contain a DOI but have no `oa_id`. These records are retried
+individually rather than reprocessing the entire dataset.
+
+This retry behavior is particularly useful for recovering from temporary
+OpenAlex API errors or records that were not available during an earlier run.
+
+Log
+--------
+A processing summary is appended to:
+
+```
+enriched_dir / "enrich_doi_log.jsonl"
+```
+
+Each log entry contains a UTC timestamp and the main statistics for the run.
+
+The log is written as JSONL so that multiple enrichment runs can be recorded
+in the same file and analyzed independently.
+
+Data Processing Details
+--------
+DOIs are normalized before comparison and API lookup by:
+
+1. stripping surrounding whitespace;
+2. converting the DOI to lowercase;
+3. removing `https://doi.org/` or `http://doi.org/` prefixes.
+
+OpenAlex authors are reduced to display names and ordered according to their
+`author_position` values.
+
+The primary OpenAlex location is used to obtain source metadata and the PDF URL.
+
+OpenAlex topics are reduced to their identifier, display name, score, and
+hierarchical subfield, field, and domain names.
+
+OpenAlex keywords and concepts are reduced to their display names and scores.
+Concepts with a zero score are omitted.
+
+OpenAlex's `abstract_inverted_index` is converted back into plain text by
+sorting words according to their recorded token positions.
+
+Reproducibility
+--------
+The enrichment configuration is defined by module-level constants and the
+arguments passed to `run_enrichment`. Run statistics are persisted in
+`enrich_doi_log.jsonl` so that individual enrichment runs can be audited.
+
+The module can be executed with:
+
+```
+uv run enrich_doi.py
+```
+
+which runs `run_enrichment()` using the configured default paths and batch
+sizes.
 """
 
 import config
@@ -296,6 +506,7 @@ def load_failed_papers(enriched_dir: Path):
 
 
 def write_log(log_path: Path, stats: dict):
+    """Append a enrichment run record to a JSONL log file."""
     record = {"timestamp_utc": datetime.now(timezone.utc).isoformat(), **stats}
     with open(log_path, "a", encoding="utf-8") as f:
         f.write(json.dumps(record) + "\n")
