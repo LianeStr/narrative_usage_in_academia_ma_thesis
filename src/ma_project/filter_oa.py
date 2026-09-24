@@ -1,3 +1,139 @@
+"""
+Preprocess enriched Semantic Scholar paper records for downstream analysis.
+
+This module reads enriched paper records from JSONL batch files, removes
+duplicate records, filters records based on OpenAlex metadata, and writes
+the resulting records to sequentially numbered JSONL batch files.
+
+Records are deduplicated first by ``paperId`` and then by DOI. When duplicate
+DOIs are encountered, metadata from later records is used to fill missing
+values in the first occurrence. Records without an OpenAlex match or with a
+non-English OpenAlex language are excluded and written to separate JSONL
+files according to the reason for exclusion.
+
+The pipeline performs the following operations in order:
+1. Read enriched paper records from JSONL batch files.
+2. Parse each record either as a Python literal or as JSON.
+3. Remove duplicate records based on ``paperId``, preferring records with a
+   non-null ``oa_id`` when duplicates are encountered.
+4. Remove duplicate records based on DOI, merging metadata from duplicate
+   records to fill missing fields.
+5. Exclude records for which no OpenAlex match (``oa_id``) is available.
+6. Exclude records whose OpenAlex language is not English (``"en"``).
+7. Write records that pass all filters to sequentially numbered JSONL batch
+   files.
+8. Write excluded records to dedicated JSONL files according to the
+   exclusion category.
+9. Append summary statistics and run metadata to ``preprocess_log.jsonl``.
+
+
+Input
+-----
+Enriched input files are read from ``enriched_dir``.
+By default, this is:
+
+    config.ENRICHED_DATA_PATH / "doi"
+
+Input files must follow the naming convention:
+
+    enriched_batch_*.jsonl
+
+Files are processed in sorted order. Each non-empty line is expected to
+contain one paper record. Records are first parsed with
+``ast.literal_eval`` to support Python-dictionary-style records and, if
+that fails, are parsed as JSON.
+
+All successfully parsed records are currently loaded into memory before
+deduplication and filtering.
+
+
+Output
+------
+Accepted records are written to ``processed_dir`` using sequentially
+numbered JSONL files:
+
+    enriched_batch_1.jsonl
+    enriched_batch_2.jsonl
+    ...
+
+The maximum number of records per output file is controlled by
+``batch_size``.
+
+Records excluded during preprocessing are written to ``filtered_out_dir``:
+
+``no_match_oa.jsonl``
+    Records for which no OpenAlex match is available, identified by a
+    null ``oa_id``.
+
+``language_oa.jsonl``
+    Records whose OpenAlex language is not ``"en"``.
+
+Duplicate records removed during ``paperId`` or DOI deduplication are not
+written to the filtered-out files.
+
+A processing summary is appended to:
+
+    processed_dir / "preprocess_log.jsonl"
+
+Each log entry contains the UTC timestamp of the run, input and output
+directories, record counts, duplicate counts, filtering counts, and the
+number of output batches created.
+
+
+Deduplication
+------------
+Two stages of deduplication are applied.
+
+First, records are deduplicated by ``paperId``. If multiple records share
+the same ``paperId``, the first record is retained unless a later duplicate
+contains a non-null ``oa_id`` while the retained record does not. In that
+case, the later record replaces the retained record.
+
+Second, records are deduplicated by DOI. DOI values are normalized by
+stripping surrounding whitespace and converting them to lowercase. The
+first record for each DOI is retained, while metadata from later duplicate
+records is merged into it to fill missing values.
+
+Configuration
+-------------
+The following module-level constants define the default pipeline
+configuration:
+
+``ENRICHED_DIR``
+    Default directory containing enriched DOI records, derived from
+    ``config.ENRICHED_DATA_PATH / "doi"``.
+
+``PROCESSED_DIR``
+    Default directory for records that pass all preprocessing filters,
+    derived from ``config.ENRICHED_DATA_PATH / "filtered"``.
+
+``FILTERED_OUT_DIR``
+    Default directory for records excluded during preprocessing.
+
+``BATCH_SIZE``
+    Default maximum number of records written to each processed output
+    batch.
+
+The ``run_preprocessing`` function accepts these values as arguments,
+allowing the pipeline to be configured without modifying the implementation.
+
+
+Reproducibility
+---------------
+Processing runs are logged with a UTC timestamp in
+``preprocess_log.jsonl`` inside ``processed_dir``. 
+The log records the input and output directories, record counts, 
+duplicate counts, filtering counts, and number of output batches, 
+allowing the results of individual preprocessing runs to be tracked and compared.
+
+The module can be executed with:
+
+    uv run python src/ma_project/filter_oa.py
+
+which runs ``run_preprocessing()`` using the configured default paths and
+batch size.
+"""
+
 import config
 
 import ast
@@ -41,10 +177,17 @@ def iter_enriched_papers(enriched_dir: Path):
 
 def deduplicate(papers: list[dict]) -> tuple[list[dict], int]:
     """
-    Deduplicate by paperId, preferring records with a non-null oa_id.
-    Mirrors the notebook logic:
-      sort so non-null oa_id comes first, then drop_duplicates keeping first.
-    Returns (deduplicated list, number of duplicates removed).
+    Deduplicate records by ``paperId``.
+
+    The first record for each ``paperId`` is retained by default. If a
+    duplicate record has a non-null ``oa_id`` while the retained record
+    does not, the duplicate replaces the retained record.
+
+    Records without a ``paperId`` are skipped.
+
+    Returns:
+        A tuple containing the deduplicated records and the number of
+        duplicate records removed.
     """
     seen: dict[str, dict] = {}
     for paper in papers:
@@ -103,61 +246,32 @@ def deduplicate_doi(papers: list[dict]) -> tuple[list[dict], int]:
     n_duplicates = len(papers) - len(result)
     return result, n_duplicates
 
-"""
-def normalize_text(value: str | None) -> str | None:
-    #Normalize text for matching.
-
-    if not value:
-        return None
-    
-    value = value.lower().strip()
-    value = re.sub(r"\s+", " ", value)
-    value = re.sub(r"[^\w\s]", "", value)
-
-    return value
-
-
-def deduplicate_title_venue(papers: list[dict]) -> tuple[list[dict], int]:
-   # Deduplicate by title + venue overlap.
-
-    #Only applies to titles with more than one word.
-    #Merges metadata from duplicate records.
-
-    seen: dict[tuple[str, str], dict] = {}
-    result: list[dict] = []
-
-    for paper in papers:
-        title = normalize_text(paper.get("title"))
-        venue = normalize_text(paper.get("venue"))
-
-        # Cannot safely match without title or venue
-        if not title or not venue:
-            result.append(paper)
-            continue
-
-        # Avoid short generic titles ("Introduction", "Editorial", etc.)
-        if len(title.split()) < 2:
-            result.append(paper)
-            continue
-
-        key = (title, venue)
-
-        if key not in seen:
-            seen[key] = deepcopy(paper)
-            result.append(seen[key])
-        else:
-            merged = merge_records(seen[key], paper)
-            seen[key].clear()
-            seen[key].update(merged)
-
-    n_duplicates = len(papers) - len(result)
-    return result, n_duplicates
-    """
 
 class BatchWriter:
-    """Writes records to sequentially numbered JSONL batch files."""
+    """
+    Writes records to sequentially numbered JSONL batch files. 
+    
+    Records are written incrementally to avoid keeping the entire processed dataset in memory. 
+    A new batch file is automatically opened whenever the configured batch size is reached. 
+    Each output file contains one JSON record per line and is named using the configured prefix and a sequential batch number, 
+    for example: 
+        enriched_batch_1.jsonl 
+        enriched_batch_2.jsonl 
+        ...
+        
+    The class keeps track of the number of records written to the current batch 
+    as well as the total number of records written across all batches. 
+
+    Args: 
+        output_dir: Directory in which the batch files are created. 
+        prefix: Prefix used when naming the batch files. 
+        batch_size: Maximum number of records written to each batch file. 
+        
+    The writer should be closed with ``close()`` after writing is finished.
+    """
 
     def __init__(self, output_dir: Path, prefix: str = "enriched_batch", batch_size: int = BATCH_SIZE):
+        """Initialize the batch writer and create the output directory."""
         self.output_dir  = output_dir
         self.prefix      = prefix
         self.batch_size  = batch_size
@@ -168,6 +282,7 @@ class BatchWriter:
         output_dir.mkdir(parents=True, exist_ok=True)
 
     def _open_next(self):
+        """Close the current batch file and open the next numbered file."""
         if self._file:
             self._file.close()
         path = self.output_dir / f"{self.prefix}_{self._batch_idx}.jsonl"
@@ -177,6 +292,11 @@ class BatchWriter:
         self._count = 0
 
     def write(self, record: dict):
+        """ Write one record to the current JSONL batch file. 
+        
+        A new batch file is opened automatically 
+        when the current batch reaches the configured batch size. 
+        """
         if self._file is None:
             self._open_next()
         self._file.write(json.dumps(record) + "\n")
@@ -186,28 +306,68 @@ class BatchWriter:
             self._open_next()
 
     def close(self):
+        """Close the currently open batch file, if one exists."""
         if self._file:
             self._file.close()
             self._file = None
 
     @property
     def batches_written(self):
+        """Return the number of batch files created by this writer."""
         return self._batch_idx - 1
 
 
 class SingleFileWriter:
-    """Writes filtered-out records to a single JSONL file."""
+    """
+    Writes filtered-out records incrementally to a single JSONL file.
+    
+    ``SingleFileWriter`` is a helper for storing records that have been 
+    excluded from the preprocessing pipeline. 
+    Unlike ``BatchWriter``, which creates multiple output files after 
+    reaching a configurable batch size, this class writes all records to 
+    one specified file. 
+    
+    Each record is serialized as a single JSON object and written on its own line. 
+    Records are written incrementally as they are received, 
+    so the complete collection of records does not need to be held in memory. 
+    
+    The output file and its parent directory are created when the writer is initialized. 
+    If a file already exists at the specified path, it is opened in write mode 
+    and therefore overwritten. 
+    
+    Attributes: 
+        total (int): Number of records successfully passed to ``write()`` by this writer instance. 
+    
+    Args: 
+        path (Path): Path of the JSONL file to create. 
+        Parent directories are created automatically if they do not already exist. 
+    
+    Notes:
+        The supplied object is expected to be JSON-serializable. 
+
+        The file should be closed explicitly with ``close()`` after writing is complete. 
+        In the preprocessing pipeline, this is handled in the ``finally`` block of 
+        ``run_preprocessing()`` so that output files are closed even if processing 
+        terminates with an exception. 
+        
+        The ``total`` attribute counts calls to ``write()`` and is intended for reporting 
+        preprocessing statistics. It does not independently verify that the resulting file 
+        contains the expected number of records.
+    """
 
     def __init__(self, path: Path):
+        """Initialize the writer and open the target JSONL file for writing."""
         path.parent.mkdir(parents=True, exist_ok=True)
         self._file = open(path, "w", encoding="utf-8")
         self.total = 0
 
     def write(self, record: dict):
+        """Serialize ``record`` as JSON and append it as one line to the file."""
         self._file.write(json.dumps(record) + "\n")
         self.total += 1
 
     def close(self):
+        """Close the underlying output file."""
         self._file.close()
 
 
@@ -242,10 +402,6 @@ def run_preprocessing(
     # ── (2b) Deduplicate ───────────────────────────────────────────────────────
     all_papers, n_doi_dups = deduplicate_doi(all_papers)
     print(f"DOI Duplicates removed: {n_doi_dups:,}  ({len(all_papers):,} remaining)")
-
-    # ── (2c) Deduplicate ───────────────────────────────────────────────────────
-    #all_papers, n_title_dups = deduplicate_title_venue(all_papers)
-    #print(f"Title Duplicates removed: {n_title_dups:,}  ({len(all_papers):,} remaining)")
 
     # ── (3) Filter and write ──────────────────────────────────────────────────
     kept_writer  = BatchWriter(processed_dir, batch_size=batch_size)
@@ -284,7 +440,6 @@ def run_preprocessing(
         "total_kept":            total_kept,
         "dropped_paperID_duplicates":    total_dup,
         "dropped_DOI_duplicates": n_doi_dups,
-        #"dropped_title_duplicates": n_title_dups,
         "dropped_no_oa_match":   total_no_oa,
         "dropped_non_english":   total_non_english,
         "batches_written":       kept_writer.batches_written,
@@ -294,7 +449,6 @@ def run_preprocessing(
         f"\nDone. Read {total_read:,} → kept {total_kept:,}\n"
         f"  Duplicates paperID removed:  {total_dup:,}\n"
         f"  Duplicates DOI removed:  {n_doi_dups:,}\n"
-        #f"  Duplicates Title removed:  {n_title_dups:,}\n"
         f"  No OpenAlex match:   {total_no_oa:,}  → {filtered_out_dir}/no_match_oa.jsonl\n"
         f"  Non-English dropped: {total_non_english:,}  → {filtered_out_dir}/language_oa.jsonl"
     )
