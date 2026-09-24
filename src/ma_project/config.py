@@ -10,11 +10,12 @@ PROCESSED_DATA_PATH = "data/processed"
 # enrich_doi.py
 ENRICHED_DATA_PATH = "data/enriched"
 
+# paper2mentions.py
+MENTIONS_PATH = "data/mentions"
+
 
 RESULTS_PATH = "results/"
 RESULTS_PATH_FILTERED = "results/filtered"
-
-MENTIONS_PATH = "data/mentions"
 
 #FINAL_PATH = "data/final.parquet"
 #OUTPUT_PATH = "data/processed/narrative_papers_meta.csv"

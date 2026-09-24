@@ -93,6 +93,17 @@ src/ma_project/paper2mentions.py
 
 **Output:** `data/mentions`
 
+```text
+matched_summary.csv
+narrative_mentions.jsonl
+```
+
+**Visualisations:** `results/paper2mentions`
+```text
+nr_mentions_per_paper_heatmap.png
+top20_matches.png
+```
+
 **Log:** `data/mentions/processing_log.jsonl`
 
 # Retrieve Contextualized Word Embeddings

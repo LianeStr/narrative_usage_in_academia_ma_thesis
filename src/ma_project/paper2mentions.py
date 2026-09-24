@@ -1,5 +1,295 @@
+"""
+Extract and characterize mentions of narrative-related terms from paper titles
+and abstracts.
+
+This module reads enriched paper records from JSONL batch files, identifies
+mentions of `narrative`-related terms in titles and abstracts using regular
+expression matching, and stores detailed metadata for each detected mention.
+
+The pipeline distinguishes between exact/full matches of `narrative` or
+`narratives` and broader stem-based matches containing `narrat`. For each
+mention, the character span, sentence position, text type, and associated
+paper metadata are retained. The matched context is additionally tokenized
+using the `bert-base-uncased` HuggingFace tokenizer, allowing the token IDs,
+token count, and token indices corresponding to the matched sequence to be
+stored with each mention.
+
+The pipeline performs the following operations in order:
+
+1. Read enriched paper records from sequentially named JSONL batch files.
+2. Normalize title and abstract text using Unicode NFKC normalization,
+   removal of soft hyphens, and optional lowercasing.
+3. Search paper titles for terms matching the broad `narrat` pattern.
+4. Classify title matches as `full_match` when the matched sequence contains
+   a complete `narrative`-style term, or as `stem_match` otherwise.
+5. Split non-null abstracts into sentences using NLTK sentence tokenization.
+6. Search each abstract sentence for the same broad narrative-related pattern.
+7. Record detailed metadata for every detected mention, including the paper
+   identifiers, text type, cleaned context, match type, matched sequence,
+   character offsets, sentence position, and within-context match position.
+8. Assign an internal sequential identifier to each extracted mention (´mention_id´).
+9. Tokenize each mention context with the `bert-base-uncased` tokenizer and
+    record token IDs and the token indices overlapping the matched character
+    span.
+10. Write all extracted mentions to a JSONL file.
+11. Create a frequency summary of matched sequences and their match types.
+12. Tokenize the unique matched sequences and record their BERT tokenization
+    lengths and write the match summary to CSV.
+13. Calculate paper-level and match-level processing statistics.
+14. Append the processing statistics and runtime information to a JSONL log.
+15. Generate visualizations summarizing the most frequent matched sequences
+    and the distribution of title versus abstract mentions per paper.
+
+Input
+-----
+Enriched paper records are read from `input_dir`. By default, this is
+`config.ENRICHED_DATA_PATH / "filtered"`.
+
+Input files must follow the naming convention:
+
+```
+enriched_batch_*.jsonl
+```
+
+Each non-empty line is expected to contain one paper record with, at minimum,
+the following fields:
+
+`paperId`
+Unique identifier of the paper.
+
+`doi`
+DOI associated with the paper, when available.
+
+`oa_id`
+OpenAlex identifier associated with the paper, when available.
+
+`title`
+Paper title.
+
+`abstract`
+Paper abstract, which may be missing.
+
+Records are parsed first with `ast.literal_eval` to support
+Python-dictionary-style records and, if that fails, with `json.loads`.
+Malformed records that cannot be parsed by either method are skipped.
+
+Mention Extraction
+------------------
+Narrative-related terms are detected using two regular expression patterns.
+
+`NARRATIVE_RE`
+Matches words containing `narrative` and is used to identify
+full/exact narrative-related matches.
+
+`NARRAT_RE`
+Matches words containing `narrat` and is used as the broader candidate
+pattern.
+
+A mention is classified as `full_match` when the matched sequence contains
+a match to `NARRATIVE_RE`. Otherwise, a candidate detected by
+`NARRAT_RE` is classified as `stem_match`.
+
+Matching is performed on cleaned, lowercased text. Titles are treated as a
+single text unit, whereas abstracts are split into sentences before matching.
+
+For each mention, the following information is recorded:
+
+`paperId`
+Semantic Scholar identifier of the source paper.
+
+`doi`
+DOI of the source paper.
+
+`oa_id`
+OpenAlex identifier of the source paper.
+
+`text_type`
+Either `title` or `abstract`.
+
+`text_cleaned`
+Cleaned text containing the matched sequence. For abstracts, this is the
+individual sentence containing the match.
+
+`match_type`
+Either `full_match` or `stem_match`.
+
+`matched_seq`
+The exact matched character sequence after text cleaning,
+i.e. the word that is/contains the regex-pattern/the substring.
+
+`matched_char_start` / `matched_char_end`
+Character offsets of the matched sequence within `text_cleaned`.
+
+`sentence_pos`
+Zero-based sentence position within the abstract. This is `-1` for
+title mentions.
+
+`pos`
+Zero-based position of the match within the corresponding title or
+abstract sentence. Enstures unique identifiability of more than one 
+narrative mention per title or sentence.
+
+`id`
+Sequential internal identifier assigned to each extracted mention.
+
+Tokenization
+------------
+Mention contexts are tokenized using the HuggingFace
+`bert-base-uncased` tokenizer.
+
+For each mention, the pipeline records:
+
+`context_token_ids`
+BERT input token IDs for the complete cleaned context, including special
+tokens.
+
+`context_n_tokens`
+Number of tokens in the complete context, including special tokens.
+
+`matched_token_indices`
+Zero-based indices of BERT tokens whose character offsets overlap the
+matched sequence.
+
+Special tokens such as `[CLS]` and `[SEP]` are excluded from
+`matched_token_indices` because they have zero-length character offsets.
+
+The same tokenizer is used when constructing the match-frequency summary,
+where each unique matched sequence is represented by its BERT tokens and
+corresponding token count.
+
+Output
+------
+Extracted mention records are written to:
+
+```
+output_dir / "narrative_mentions.jsonl"
+```
+
+Each line contains one mention dictionary, including paper metadata, match
+metadata, context information, and BERT tokenization information.
+
+A frequency summary of matched sequences is written to:
+
+```
+output_dir / "matched_summary.csv"
+```
+
+The summary contains the matched sequence, match type, occurrence count,
+BERT tokens, and number of BERT tokens.
+
+Processing statistics are appended to:
+
+```
+output_dir / "processing_log.jsonl"
+```
+
+Each log entry contains a UTC timestamp and summary statistics including:
+
+`total_papers_read`
+Number of paper records loaded from the input batches.
+
+`papers_without_mentions`
+Number of papers for which no narrative-related mention was detected.
+
+`no_mention_title_abstract_unsure`
+Number of papers without a title match where the abstract is missing,
+making the absence of an abstract match indeterminate.
+
+`no_mention_title_abstract`
+Number of papers without detected mentions after accounting for the
+missing-abstract cases.
+
+`match_type_distribution`
+Frequency distribution of `full_match` and `stem_match` mentions.
+
+`conservative_match_count`
+Number of mentions whose matched sequence is exactly `narrative` or
+`narratives`.
+
+`runtime_seconds`
+Processing runtime in seconds.
+
+`runtime_human`
+Processing runtime formatted as hours, minutes, and seconds.
+
+Visualizations
+--------------
+Figures are written to `vis_dir`. By default, this is:
+
+```
+results/paper2mentions
+```
+
+The pipeline generates two visualizations.
+
+`top20_matches.png`
+A log-scaled bar chart showing the most frequently detected matched
+sequences, with bars distinguished by match type.
+
+`nr_mentions_per_paper_heatmap.png`
+A heatmap showing the joint distribution of the number of narrative
+mentions in each paper's title and abstract. Marginal distributions show
+the corresponding title- and abstract-level paper counts.
+
+Configuration
+-------------
+The following module-level constants define the default pipeline
+configuration:
+
+`INPUT_DIR`
+Default input directory obtained from
+`config.ENRICHED_DATA_PATH / "filtered"`.
+
+`OUTPUT_DIR`
+Default mention-output directory obtained from
+`config.MENTIONS_PATH`.
+
+`VIZ_DIR`
+Default visualization directory.
+
+`MODEL_NAME`
+HuggingFace tokenizer identifier. The current configuration uses
+`bert-base-uncased`.
+
+`TOKENIZER`
+Pre-loaded HuggingFace tokenizer used for context and matched-sequence
+tokenization.
+
+`NARRATIVE_RE`
+Regular expression used to identify full `narrative`-style matches.
+
+`NARRAT_RE`
+Broader regular expression used to identify candidate
+narrative-related matches.
+
+The `transform` function accepts input, output, and visualization
+directories as arguments, allowing the pipeline to be executed with
+alternative paths without changing the module-level configuration.
+
+Reproducibility
+---------------
+The extraction procedure is deterministic for a fixed input dataset,
+regular-expression configuration, NLTK sentence-tokenization behavior, and
+installed tokenizer version.
+
+The tokenizer configuration is explicitly fixed to
+`bert-base-uncased`. Character offsets returned by the tokenizer are used
+to map matched character spans back to their corresponding BERT token
+indices.
+
+Processing statistics are appended to `processing_log.jsonl` so that
+individual processing runs and their runtimes can be tracked over time.
+
+The module can be executed with:
+
+```
+uv run python src/ma_project/paper2mentions.py
+```
+
+which runs `transform()` using the configured default paths.
+"""
+
 import pandas as pd
-#import glob
 import json
 from pathlib import Path
 import ast
@@ -58,6 +348,25 @@ def iter_enriched_papers(enriched_dir: Path):
 # ── Auxilirary Funcitons ───────────────────────────────────────────────────────
 
 def clean_text(x: str, to_lower=True):
+    """
+    Normalize and optionally lowercase text before pattern matching.
+
+    Missing values are converted to an empty string. Unicode is normalized
+    using NFKC, soft hyphens are removed, and text is lowercased when
+    ``to_lower`` is True.
+
+    Parameters
+    ----------
+    x : str
+        Input text or a value that can be converted to a string.
+    to_lower : bool, default=True
+        Whether to lowercase the normalized text.
+
+    Returns
+    -------
+    str
+        Cleaned text suitable for downstream matching.
+    """
     if pd.isna(x):
         return ""
     x = str(x)
@@ -65,7 +374,7 @@ def clean_text(x: str, to_lower=True):
     # normalize unicode (important for accented / weird forms)
     x = unicodedata.normalize("NFKC", x)
 
-    # remove soft hyphens (your bug)
+    # remove soft hyphens
     x = x.replace("\u00ad", "")
     
     if to_lower:
@@ -79,8 +388,40 @@ def calculate_mention_stats(
     unsure_match_abstract: int,
 
 ) -> dict:
-    """
-    Calculate statistics about narrative mentions.
+    """ Calculate summary statistics for narrative-related mentions. 
+    The statistics are calculated at both the paper level and the mention level. 
+    Papers are considered to have a mention if their ``paperId`` occurs in ``mentions_list``. 
+    
+    Parameters 
+    ---------- 
+    total_read : int Total number of papers processed by the pipeline. 
+    mentions_list : list[dict] Extracted mention records. 
+        Each record must contain at least ``paperId``, ``match_type``, and ``matched_seq``. 
+    unsure_match_abstract : int Number of papers without a title match for which 
+        the abstract is missing, making it impossible to determine whether the paper 
+        has an abstract-level mention. 
+    
+    Returns 
+    ------- 
+    dict Dictionary containing: 
+    ``total_papers_read`` 
+        Total number of papers processed. 
+        
+    ``papers_without_mentions`` 
+        Number of papers for which no narrative-related mention was detected. 
+    
+    ``no_mention_title_abstract_unsure`` 
+        Number of papers without a detected mention where the abstract was unavailable 
+        and therefore could not be checked. 
+        
+    ``no_mention_title_abstract`` 
+        Number of papers without a detected mention after excluding cases with a missing abstract. 
+        
+    ``match_type_distribution`` 
+        Frequency of each mention type, such as ``full_match`` and ``stem_match``. 
+        
+    ``conservative_match_count`` 
+        Number of mentions whose matched sequence is exactly ``narrative`` or ``narratives``. 
     """
 
     mentions_df = pd.DataFrame(mentions_list)
@@ -170,6 +511,7 @@ def write_match_summary(
 
 
 def format_runtime(seconds: float) -> str:
+    """Format a duration in seconds as a human-readable time string."""
     return str(timedelta(seconds=round(seconds)))
 
 
@@ -177,22 +519,39 @@ def add_context_tokens(
     mentions_list: list[dict],
     tokenizer,
 ) -> list[dict]:
-    """
-    Add tokenizer output, token count, and the token indices
-    corresponding to the matched sequence within the context.
-
-    Parameters
-    ----------
-    mentions_list : list[dict]
-        Extracted mention records.
-
-    tokenizer :
-        HuggingFace tokenizer.
-
-    Returns
-    -------
-    list[dict]
-        Mentions with added token information.
+    """ 
+    Add tokenizer information and matched-token indices to mention records. 
+    
+    Each mention's cleaned text is tokenized with the provided HuggingFace tokenizer. 
+    The resulting token IDs and total token count are stored in the mention record. 
+    Character offsets for the matched sequence are then mapped to the corresponding 
+    tokenizer token indices. 
+    
+    Special tokens such as ``[CLS]`` and ``[SEP]`` are excluded from ``matched_token_indices`` 
+    because they have zero-length character offsets. 
+    
+    Parameters 
+    ---------- 
+    mentions_list : list[dict] Extracted mention records. Each record must contain 
+        ``text_cleaned``, ``matched_char_start``, and ``matched_char_end``. 
+        
+    tokenizer HuggingFace tokenizer used to tokenize the mention context. 
+    The tokenizer must support ``return_offsets_mapping=True``. 
+    
+    Returns 
+    ------- 
+    list[dict] 
+        The input mention records with the following fields added: 
+        
+        ``context_token_ids`` 
+            Token IDs for the complete cleaned context, including special tokens 
+            added by the tokenizer. 
+            
+        ``context_n_tokens`` 
+            Number of tokens in the complete context, including special tokens. 
+            
+        ``matched_token_indices`` 
+            Zero-based indices of tokens whose character spans overlap the matched sequence. 
     """
 
     for mention in mentions_list:
@@ -232,7 +591,28 @@ def plot_top_matches(
     top_n: int = 25,
 ):
     """
-    Plot the top-N matched sequences, colored by match type.
+    Plot the most frequent narrative-related matched sequences.
+
+    The ``top_n`` matched sequences are selected by descending occurrence
+    count. Bars are colored according to match type (``full_match`` or
+    ``stem_match``), and the y-axis is displayed on a logarithmic scale to
+    accommodate differences in frequency between matched sequences.
+
+    Parameters
+    ----------
+    matched_summary : pd.DataFrame
+        Match summary containing at least the columns ``matched_seq``,
+        ``count``, and ``match_type``.
+    output_path : Path
+        Path at which the generated figure is saved.
+    top_n : int, default=25
+        Number of highest-frequency matched sequences to include in the
+        figure.
+
+    Returns
+    -------
+    None
+        The figure is saved to ``output_path`` and is not returned.
     """
 
     plot_df = (
@@ -292,8 +672,32 @@ def plot_title_vs_abstract_heatmap(
     mentions_list: list[dict],
     output_path: Path,
     ):
-    """
-    Heatmap of title vs abstract mention counts with marginal distributions.
+    """ 
+    Plot the distribution of title and abstract narrative mentions per paper. 
+    
+    For each paper, the number of detected narrative-related mentions in the title and abstract is calculated. 
+    The resulting two-dimensional distribution is displayed as a heatmap, where each cell represents 
+    the number of papers with a given combination of title- and abstract-level mention counts. 
+    Marginal bar plots show the corresponding distributions of title and abstract mention counts across papers. 
+    
+    The heatmap and marginal distributions use logarithmic scaling to accommodate 
+    differences in the number of papers across mention-count categories. 
+    
+    Parameters 
+    ---------- 
+    mentions_list : list[dict] 
+        Extracted mention records. Each record must contain ``paperId`` and 
+        ``text_type``, where ``text_type`` identifies whether the mention occurs 
+        in a ``title`` or ``abstract``. 
+        
+    output_path : Path 
+        Path at which the generated figure is saved. The parent directory is created
+        if it does not already exist. 
+    
+    Returns 
+    ------- 
+    None 
+        The figure is saved to ``output_path`` and is not returned. 
     """
 
     mentions_df = pd.DataFrame(mentions_list)
@@ -333,7 +737,7 @@ def plot_title_vs_abstract_heatmap(
         .unstack(fill_value=0)
     )
 
-    # ensure a (0,0) in the bottom, left
+    # ensure a ascending counts starting from the bottom, left
     heatmap_data = heatmap_data.sort_index(ascending=False)
 
     # Marginals
@@ -433,29 +837,66 @@ def paper2mentions(
     narrow_pattern=NARRATIVE_RE,
     broad_pattern=NARRAT_RE,
 ) -> tuple[list[dict], int]:
-    """
-    Extract mentions of narrative-related terms from paper titles and abstracts.
+    """ 
+    Extract narrative-related mentions from paper titles and abstracts. 
+    
+    Titles and abstracts are searched using a broad regular expression containing 
+    the ``narrat`` stem. Each resulting match is subsequently classified as either 
+    a ``full_match`` or ``stem_match`` using the narrower ``narrative`` pattern. 
+    
+    Titles are processed as complete text fields, while non-missing abstracts are 
+    split into sentences using NLTK's sentence tokenizer before matching. 
+    For each detected mention, the function records paper metadata, the text type, 
+    cleaned context, match type, matched character span, sentence position, 
+    and position of the match within the corresponding text unit. 
 
-    Parameters
-    ----------
-    df : pd.DataFrame
-        DataFrame containing at least:
-        - paperId
-        - doi
-        - oa_id
-        - title
-        - abstract
-
-    narrow_pattern : re.Pattern
-        More specific regex pattern used to classify full matches.
-
-    broad_pattern : re.Pattern
-        Broader regex pattern used to identify candidate mentions.
-
-    Returns
-    -------
-    list[dict]
-        List of dictionaries containing metadata about each mention.
+    Papers without a title match and with a missing abstract are counted separately 
+    because the absence of an abstract prevents the function from determining whether 
+    the paper contains a narrative-related mention. 
+    
+    Parameters 
+    ---------- 
+    df : pd.DataFrame 
+        DataFrame containing paper records. The following columns are required: 
+        
+        ``paperId`` 
+            Unique identifier of the paper. 
+        
+        ``doi`` 
+            DOI associated with the paper. 
+        
+        ``oa_id`` 
+            Open-access identifier associated with the paper. 
+            
+        ``title`` 
+            Paper title. 
+            
+        ``abstract`` 
+        Paper abstract, which may be missing. 
+        
+    narrow_pattern : re.Pattern, default=NARRATIVE_RE 
+        Regular expression used to classify broad matches as ``full_match`` 
+        when the matched sequence contains a ``narrative``-related term. 
+        
+    broad_pattern : re.Pattern, default=NARRAT_RE 
+        Broader regular expression used to identify candidate narrative-related 
+        matches. 
+        
+    
+    Returns 
+    ------- 
+    tuple[list[dict], int] A tuple containing: 
+    
+        ``mentions_list`` 
+            List of dictionaries, with one dictionary for each detected mention. 
+            Each record contains paper metadata, text type, cleaned context, match type, 
+            matched sequence, character offsets, sentence position, and within-text match 
+            position. 
+            
+        ``unsure_match_abstract`` 
+            Number of papers for which no title mention was detected and the abstract is 
+            missing. These papers cannot be classified as having no narrative-related 
+            mention because their abstract could not be searched. 
     """
 
     narrative_mentioned = []
@@ -542,22 +983,48 @@ def create_match_summary(
     mentions_list: list[dict],
     tokenizer,
 ) -> pd.DataFrame:
-    """
-    Create a frequency table of matched sequences and classify
-    them by BERT tokenization length.
-
-    Parameters
-    ----------
-    mentions_list : list[dict]
-        Extracted mention records.
-
-    tokenizer :
-        HuggingFace tokenizer.
-
-    Returns
-    -------
-    pd.DataFrame
-        Summary table with match frequencies and token information.
+    """ 
+    Create a frequency summary of detected matched sequences. 
+    
+    The extracted mention records are grouped by matched sequence and match type. 
+    For each group, the number of occurrences is calculated and the matched sequence 
+    is tokenized using the provided HuggingFace tokenizer. The resulting token sequence 
+    and number of tokens are added to the summary. 
+    
+    Special tokens are not added during tokenization, so ``n_tokens`` represents 
+    the number of tokenizer subword tokens required to represent the matched sequence itself. 
+    
+    Parameters 
+    ---------- 
+    mentions_list : list[dict] 
+        Extracted mention records. Each record must contain ``matched_seq`` and
+        ``match_type``. 
+    
+    tokenizer 
+        HuggingFace tokenizer used to tokenize the matched sequences. 
+        
+    Returns 
+    ------- 
+    pd.DataFrame 
+        Summary table containing one row per unique combination of matched sequence 
+        and match type, with the following columns: 
+        
+        ``matched_seq`` 
+            Matched character sequence. 
+            
+        ``match_type`` 
+            Match classification, either ``full_match`` or ``stem_match``. 
+            
+        ``count``
+            Number of occurrences of the matched sequence with the given match type. 
+            
+        ``tokens`` 
+            BERT tokenizer subword tokens corresponding to the matched sequence. 
+            
+        ``n_tokens`` 
+            Number of tokenizer subword tokens in the matched sequence. 
+    
+        Rows are sorted by ``count`` in descending order.
     """
 
     mentions_df = pd.DataFrame(mentions_list)
