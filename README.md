@@ -190,14 +190,20 @@ data/sorted_k_dist/results_kdist_scibert_sample
 ## Runtime Estimation (Kaggle)
 
 ```text
+DBSCAN runtime on different sample sizes
+Kaggle:
+notebooks/kaggle/test-clustering-time-kaggle.ipynb 
+
+MyPC and the Visualisations:
 notebooks/paper_vis/Testing_Runtime_dbscan.ipynb
 ```
 
 **Data:**
 
 ```text
+**notebooks/cluster_speed_kaggle_larger.jsonl**
+
 notebooks/cluster_speed_kaggle.jsonl
-notebooks/cluster_speed_kaggle_larger.jsonl
 notebooks/cluster_speed_myPC.jsonl
 ```
 
