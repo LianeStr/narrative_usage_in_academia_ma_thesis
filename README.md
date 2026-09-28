@@ -157,12 +157,33 @@ notebooks/kaggle/create-embeddings-samples-scibert.ipynb
 notebooks/kaggle/sorted-k-dist-graph.ipynb
 ```
 
+**Output:**
+
+```text
+data/sorted_k_dist/k_distance_100.csv
+data/sorted_k_dist/k_distance_500.csv
+data/sorted_k_dist/k_distance_1000.csv
+```
+
 ## Sample (Kaggle)
 
 ```text
 notebooks/kaggle/bert-base-sample-tuning-kdist.ipynb
-notebooks/kaggle/bert-base-sample-tuning-kdist.ipynb
+notebooks/kaggle/scibert-sample-tuning-kdist.ipynb
 ```
+
+**Output:**
+
+```text
+data/sorted_k_dist/results_kdist_bertbase_sample 
+(3 layers * 4 k-values = 12 csv files)
+
+data/sorted_k_dist/results_kdist_scibert_sample
+(3 layers * 4 k-values = 12 csv files)
+```
+
+> **Note:** More infos in the local README.txt 
+('notebooks/kaggle/README.txt`)
 
 # DBSCAN Parameter Tuning
 
