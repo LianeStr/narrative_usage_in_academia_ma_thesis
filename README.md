@@ -233,6 +233,7 @@ results/dbscan_sample/clustering_results_scibert_layer_mean.json
 ('notebooks/kaggle/README.txt`)
 
 ## Full Dataset (Kaggle)
+Note that creating several Jupyter notebooks for the experiments allowed them to be run simultaneously, which significantly reduced the waiting time for the results.
 
 ```text
 notebooks/kaggle/full-run-dbscan-bb-12-adjusted.ipynb
@@ -248,6 +249,9 @@ results/dbscan_full/full_clustering_results_bert-base_layer_12_adjusted.json
 results/dbscan_full/full_clustering_results_scibert_layer_11.json
 results/dbscan_full/full_clustering_results_scibert_layer_11_adjusted.json
 ```
+
+> **Note:** More infos in the local README.txt 
+('notebooks/kaggle/README.txt`)
 
 # Visualisation of the Results
 
