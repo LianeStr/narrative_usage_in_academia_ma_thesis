@@ -264,7 +264,7 @@ notebooks/visualisations/vis_kDist_sample.ipynb
 ## Sorted k-Distance: Sample vs. Full Dataset
 
 ```text
-notebooks/06e_sample_vs_full_KDist.ipynb
+notebooks/visualisations/sample_vs_full_KDist.ipynb
 ```
 
 ## DBCV, Noise, Largest Cluster, and Number of Clusters
