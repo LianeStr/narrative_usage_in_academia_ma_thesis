@@ -255,22 +255,22 @@ results/dbscan_full/full_clustering_results_scibert_layer_11_adjusted.json
 
 # Visualisation of the Results
 
-## k-Distance: BERT vs. SciBERT
+## Sorted k-Distance: BERT vs. SciBERT
 
 ```text
 notebooks/visualisations/vis_kDist_sample.ipynb
+```
+
+## Sorted k-Distance: Sample vs. Full Dataset
+
+```text
+notebooks/06e_sample_vs_full_KDist.ipynb
 ```
 
 ## DBCV, Noise, Largest Cluster, and Number of Clusters
 
 ```text
 notebooks/06d_vis_cluster.ipynb
-```
-
-## Sample vs. Full Dataset
-
-```text
-notebooks/06e_sample_vs_full_KDist.ipynb
 ```
 
 # Visualisations for the Thesis
