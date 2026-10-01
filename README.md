@@ -188,9 +188,9 @@ data/sorted_k_dist/results_kdist_scibert_sample
 # DBSCAN Parameter Tuning
 
 ## Runtime Estimation (Kaggle)
+DBSCAN runtime on different sample sizes
 
 ```text
-DBSCAN runtime on different sample sizes
 Kaggle:
 notebooks/kaggle/test-clustering-time-kaggle.ipynb 
 
@@ -201,13 +201,14 @@ notebooks/paper_vis/Testing_Runtime_dbscan.ipynb
 **Data:**
 
 ```text
-**notebooks/cluster_speed_kaggle_larger.jsonl**
+notebooks/cluster_speed_kaggle_larger.jsonl
 
 notebooks/cluster_speed_kaggle.jsonl
 notebooks/cluster_speed_myPC.jsonl
 ```
 
 ## Sample (Kaggle)
+Note that creating several Jupyter notebooks for the experiments allowed them to be run simultaneously, which significantly reduced the waiting time for the results.
 
 ```text
 notebooks/kaggle/sample-tuning-dbscan-bb-11.ipynb
@@ -218,6 +219,19 @@ notebooks/kaggle/sample-tuning-dbscan-sb-12.ipynb
 notebooks/kaggle/sample-tuning-dbscan-sb-mean.ipynb
 ```
 
+**Output:**
+```text
+results/dbscan_sample/clustering_results_bert-base_layer_11.json
+results/dbscan_sample/clustering_results_bert-base_layer_12.json
+results/dbscan_sample/clustering_results_bert-base_mean.json
+results/dbscan_sample/clustering_results_scibert_layer_11.json
+results/dbscan_sample/clustering_results_scibert_layer_12.json
+results/dbscan_sample/clustering_results_scibert_layer_mean.json
+```
+
+> **Note:** More infos in the local README.txt 
+('notebooks/kaggle/README.txt`)
+
 ## Full Dataset (Kaggle)
 
 ```text
@@ -227,26 +241,12 @@ notebooks/kaggle/full-run-dbscan-sb-11-adjusted.ipynb
 notebooks/kaggle/full-run-dbscan-sb-11.ipynb
 ```
 
-## Clustering Results
-
-### Full Dataset
-
+**Output:**
 ```text
 results/dbscan_full/full_clustering_results_bert-base_layer_12.json
 results/dbscan_full/full_clustering_results_bert-base_layer_12_adjusted.json
 results/dbscan_full/full_clustering_results_scibert_layer_11.json
 results/dbscan_full/full_clustering_results_scibert_layer_11_adjusted.json
-```
-
-### Sample
-
-```text
-results/dbscan_sample/clustering_results_bert-base_layer_11.json
-results/dbscan_sample/clustering_results_bert-base_layer_12.json
-results/dbscan_sample/clustering_results_bert-base_mean.json
-results/dbscan_sample/clustering_results_scibert_layer_11.json
-results/dbscan_sample/clustering_results_scibert_layer_12.json
-results/dbscan_sample/clustering_results_scibert_layer_mean.json
 ```
 
 # Visualisation of the Results
