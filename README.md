@@ -270,7 +270,7 @@ notebooks/visualisations/sample_vs_full_KDist.ipynb
 ## DBCV, Noise, Largest Cluster, and Number of Clusters
 
 ```text
-notebooks/06d_vis_cluster.ipynb
+notebooks/Visualisations/dbscan_params_tuning_sample.ipynb
 ```
 
 # Visualisations for the Thesis
