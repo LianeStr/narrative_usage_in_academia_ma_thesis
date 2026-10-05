@@ -282,7 +282,10 @@ notebooks/paper_vis/filtered_out_language.ipynb
 notebooks/paper_vis/filtered_out_DOI.ipynb
 notebooks/paper_vis/filtered_out_narrative_review.ipynb
 
-
+notebooks/paper_vis/narrative_papers_abstract_coverage.ipynb
+notebooks/paper_vis/narrative_papers_SemScho_fos.ipynb
+notebooks/paper_vis/narrative_papers_OA_fos.ipynb
+notebooks/paper_vis/narrative_papers_OA_SemScho_fos.ipynb
 ```
 
 
