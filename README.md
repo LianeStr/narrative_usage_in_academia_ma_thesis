@@ -286,6 +286,10 @@ notebooks/paper_vis/narrative_papers_abstract_coverage.ipynb
 notebooks/paper_vis/narrative_papers_SemScho_fos.ipynb
 notebooks/paper_vis/narrative_papers_OA_fos.ipynb
 notebooks/paper_vis/narrative_papers_OA_SemScho_fos.ipynb
+
+notebooks/paper_vis/narrative_mentions_stats.ipynb
+
+
 ```
 
 
