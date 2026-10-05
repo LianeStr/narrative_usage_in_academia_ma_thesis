@@ -277,6 +277,12 @@ notebooks/Visualisations/dbscan_params_tuning_sample.ipynb
 
 ```text
 notebooks/paper_vis
+
+notebooks/paper_vis/filtered_out_language.ipynb
+notebooks/paper_vis/filtered_out_DOI.ipynb
+notebooks/paper_vis/filtered_out_narrative_review.ipynb
+
+
 ```
 
 
