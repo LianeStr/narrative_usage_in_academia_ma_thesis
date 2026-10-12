@@ -10,21 +10,28 @@ wheels/
 .venv
 
 # data
-data/embeddings/*
-data/enriched/*
-data/filtered_out/*
-data/mentions/*
+data/embeddings/bert-base/chunks/chunk_*
+data/embeddings/sci_bert/chunks/chunk_*
+data/enriched/doi/enriched_batch_*
+data/enriched/filtered/enriched_batch_*
+data/filtered_out/*.jsonl
+data/mentions/narrative_mentions.jsonl
+data/mentions/narrative_mentions.zip
 data/results/*
-data/sample/*
-data/raw/*
-data/processed/*
-data/enriched/*
+data/sample/*.json
+data/raw/search_results_batch_*
+data/raw/all_openalex_topics.zip
+data/processed/search_results_batch_*
+#data/enriched/*
 data/enriched_V2/*
 data/enriched_V1/*
-data/filtered_out/*
+#data/filtered_out/*
 !data/raw/.gitkeep
 !data/processed/.gitkeep
 .ipynb_checkpoints/
+data/sorted_k_dist/*.csv
+data/sorted_k_dist/results_kdist_bertbase_sample/*
+data/sorted_k_dist/results_kdist_scibert_sample/*
 
 # logins
 keys.py
