@@ -1,0 +1,712 @@
+matched_seq,match_type,count,tokens,n_tokens
+narrative,full_match,304594,['narrative'],1
+narratives,full_match,194892,['narratives'],1
+narration,stem_match,6958,['narration'],1
+narrator,stem_match,6044,['narrator'],1
+narratively,full_match,3910,"['narrative', '##ly']",2
+narratology,stem_match,2382,"['na', '##rra', '##tology']",3
+narrating,stem_match,2329,"['na', '##rra', '##ting']",3
+narrated,stem_match,2314,['narrated'],1
+narrators,stem_match,1983,"['narrator', '##s']",2
+narrate,stem_match,1660,"['na', '##rra', '##te']",3
+narrativity,stem_match,1480,"['na', '##rra', '##tiv', '##ity']",4
+narratological,stem_match,1286,"['na', '##rra', '##to', '##logical']",4
+narrations,stem_match,969,"['narration', '##s']",2
+narrates,stem_match,779,"['na', '##rra', '##tes']",3
+metanarrative,full_match,451,"['meta', '##nar', '##rative']",3
+narrativization,stem_match,413,"['na', '##rra', '##tiv', '##ization']",4
+counternarratives,full_match,390,"['counter', '##nar', '##rative', '##s']",4
+narrativa,stem_match,385,"['na', '##rra', '##tiv', '##a']",4
+narrativas,stem_match,322,"['na', '##rra', '##tiv', '##as']",4
+metanarratives,full_match,313,"['meta', '##nar', '##rative', '##s']",4
+counternarrative,full_match,243,"['counter', '##nar', '##rative']",3
+narrativizing,stem_match,174,"['na', '##rra', '##tiv', '##izing']",4
+narratorial,stem_match,167,"['narrator', '##ial']",2
+narrativized,stem_match,156,"['na', '##rra', '##tiv', '##ized']",4
+narratologists,stem_match,128,"['na', '##rra', '##to', '##logists']",4
+narrativize,stem_match,120,"['na', '##rra', '##tiv', '##ize']",4
+nonnarrative,full_match,102,"['non', '##nar', '##rative']",3
+antenarrative,full_match,90,"['ant', '##ena', '##rra', '##tive']",4
+narratee,stem_match,78,"['na', '##rra', '##tee']",3
+narrational,stem_match,70,"['narration', '##al']",2
+narrativisation,stem_match,66,"['na', '##rra', '##tiv', '##isation']",4
+ludonarrative,full_match,65,"['lu', '##don', '##ar', '##rative']",4
+narrativo,stem_match,63,"['na', '##rra', '##tiv', '##o']",4
+econarratology,stem_match,61,"['eco', '##nar', '##rat', '##ology']",4
+narrativizes,stem_match,57,"['na', '##rra', '##tiv', '##izes']",4
+narratival,stem_match,48,"['na', '##rra', '##tiv', '##al']",4
+antenarratives,full_match,44,"['ant', '##ena', '##rra', '##tive', '##s']",5
+narrativist,stem_match,41,"['na', '##rra', '##tiv', '##ist']",4
+narratologies,stem_match,40,"['na', '##rra', '##to', '##logies']",4
+disnarration,stem_match,38,"['di', '##s', '##nar', '##ration']",4
+narrativism,stem_match,38,"['na', '##rra', '##tiv', '##ism']",4
+narrativeness,full_match,38,"['narrative', '##ness']",2
+micronarratives,full_match,37,"['micro', '##nar', '##rative', '##s']",4
+narratologist,stem_match,32,"['na', '##rra', '##to', '##logist']",4
+narratees,stem_match,32,"['na', '##rra', '##tees']",3
+narrativ,stem_match,29,"['na', '##rra', '##tiv']",3
+narrativising,stem_match,29,"['na', '##rra', '##tiv', '##ising']",4
+narratologically,stem_match,28,"['na', '##rra', '##to', '##logical', '##ly']",5
+narrativos,stem_match,27,"['na', '##rra', '##tiv', '##os']",4
+narratable,stem_match,26,"['na', '##rra', '##table']",3
+narratio,stem_match,26,"['na', '##rra', '##ti', '##o']",4
+narrativizations,stem_match,25,"['na', '##rra', '##tiv', '##izations']",4
+disnarrated,stem_match,25,"['di', '##s', '##nar', '##rated']",4
+narrativised,stem_match,25,"['na', '##rra', '##tiv', '##ised']",4
+unnarratable,stem_match,23,"['un', '##nar', '##rata', '##ble']",4
+narratability,stem_match,23,"['na', '##rra', '##ta', '##bility']",4
+multinarrator,stem_match,22,"['multi', '##nar', '##rator']",3
+unnarrated,stem_match,21,"['un', '##nar', '##rated']",3
+renarration,stem_match,20,"['ren', '##ar', '##ration']",3
+econarrative,full_match,19,"['eco', '##nar', '##rative']",3
+narratif,stem_match,18,"['na', '##rra', '##ti', '##f']",4
+narrativen,full_match,18,"['narrative', '##n']",2
+narrativeqa,full_match,18,"['narrative', '##qa']",2
+ofnarrative,full_match,17,"['of', '##nar', '##rative']",3
+econarratological,stem_match,17,"['eco', '##nar', '##rat', '##ological']",4
+metanarration,stem_match,17,"['meta', '##nar', '##ration']",3
+narrativists,stem_match,16,"['na', '##rra', '##tiv', '##ists']",4
+hypernarrative,full_match,16,"['hyper', '##nar', '##rative']",3
+audionarratology,stem_match,16,"['audio', '##nar', '##rat', '##ology']",4
+narrato,stem_match,14,"['na', '##rra', '##to']",3
+narratifs,stem_match,13,"['na', '##rra', '##ti', '##fs']",4
+denarration,stem_match,13,"['den', '##ar', '##ration']",3
+thenarrative,full_match,12,"['then', '##ar', '##rative']",3
+nnarrative,full_match,12,"['n', '##nar', '##rative']",3
+narrativer,full_match,12,"['narrative', '##r']",2
+paranarrative,full_match,11,"['parana', '##rra', '##tive']",3
+anarrative,full_match,11,"['ana', '##rra', '##tive']",3
+geonarratives,full_match,11,"['geo', '##nar', '##rative', '##s']",4
+narrativistic,stem_match,10,"['na', '##rra', '##tiv', '##istic']",4
+narratologie,stem_match,10,"['na', '##rra', '##to', '##logie']",4
+meganarrative,full_match,10,"['megan', '##ar', '##rative']",3
+narrativethese,full_match,10,"['narrative', '##thes', '##e']",3
+renarrating,stem_match,10,"['ren', '##ar', '##rating']",3
+technologynarrative,full_match,10,"['technology', '##nar', '##rative']",3
+micronarrative,full_match,9,"['micro', '##nar', '##rative']",3
+unnarratability,stem_match,9,"['un', '##nar', '##rata', '##bility']",4
+antinarrative,full_match,9,"['anti', '##nar', '##rative']",3
+narratemes,stem_match,8,"['na', '##rra', '##tem', '##es']",4
+narrativise,stem_match,8,"['na', '##rra', '##tiv', '##ise']",4
+renarrative,full_match,8,"['ren', '##ar', '##rative']",3
+ethnonarrative,full_match,7,"['et', '##hn', '##ona', '##rra', '##tive']",5
+renarrates,stem_match,7,"['ren', '##ar', '##rates']",3
+postnarrativist,stem_match,7,"['post', '##nar', '##rat', '##ivist']",4
+narratief,stem_match,7,"['na', '##rra', '##tie', '##f']",4
+narratiewe,stem_match,7,"['na', '##rra', '##tie', '##we']",4
+narrativises,stem_match,7,"['na', '##rra', '##tiv', '##ises']",4
+undernarration,stem_match,6,"['under', '##nar', '##ration']",3
+macronarrative,full_match,6,"['macro', '##nar', '##rative']",3
+masternarratives,full_match,6,"['master', '##nar', '##rative', '##s']",4
+kidsnarrate,stem_match,6,"['kids', '##nar', '##rate']",3
+narrateur,stem_match,6,"['na', '##rra', '##te', '##ur']",4
+macronarratives,full_match,6,"['macro', '##nar', '##rative', '##s']",4
+narrati,stem_match,6,"['na', '##rra', '##ti']",3
+chrononarratology,stem_match,6,"['ch', '##ron', '##ona', '##rra', '##tology']",5
+cybernarrative,full_match,6,"['cyber', '##nar', '##rative']",3
+narrativeplay,full_match,6,"['narrative', '##play']",2
+renarrate,stem_match,6,"['ren', '##ar', '##rate']",3
+psychonarrative,full_match,6,"['psycho', '##nar', '##rative']",3
+narratorâ,stem_match,6,"['narrator', '##a']",2
+nonnarratives,full_match,6,"['non', '##nar', '##rative', '##s']",4
+psychonarratology,stem_match,5,"['psycho', '##nar', '##rat', '##ology']",4
+socionarratology,stem_match,5,"['socio', '##nar', '##rat', '##ology']",4
+narratora,stem_match,5,"['narrator', '##a']",2
+pynarrative,full_match,5,"['p', '##yna', '##rra', '##tive']",4
+narrativeguide,full_match,5,"['narrative', '##guide']",2
+narrativesof,full_match,5,"['narratives', '##of']",2
+exonarrative,full_match,5,"['ex', '##ona', '##rra', '##tive']",4
+renarrated,stem_match,5,"['ren', '##ar', '##rated']",3
+metanarrativa,stem_match,5,"['meta', '##nar', '##rat', '##iva']",4
+internarrative,full_match,5,"['intern', '##ar', '##rative']",3
+medicalnarratives,full_match,5,"['medical', '##nar', '##rative', '##s']",4
+narrative1,full_match,5,"['narrative', '##1']",2
+narrat,stem_match,5,"['na', '##rra', '##t']",3
+narrativeâ,full_match,5,"['narrative', '##a']",2
+narratividad,stem_match,5,"['na', '##rra', '##tiv', '##idad']",4
+narrativt,stem_match,5,"['na', '##rra', '##tiv', '##t']",4
+narrativenarrative,full_match,5,"['narrative', '##nar', '##rative']",3
+andnarrative,full_match,5,"['and', '##nar', '##rative']",3
+narrativegenie,full_match,5,"['narrative', '##gen', '##ie']",3
+narrativi,stem_match,5,"['na', '##rra', '##tiv', '##i']",4
+gennarrate,stem_match,4,"['gen', '##nar', '##rate']",3
+metanarrativity,stem_match,4,"['meta', '##nar', '##rat', '##ivity']",4
+metanarrations,stem_match,4,"['meta', '##nar', '##rations']",3
+internarrativity,stem_match,4,"['intern', '##ar', '##rat', '##ivity']",4
+subnarratives,full_match,4,"['sub', '##nar', '##rative', '##s']",4
+pathnarratives,full_match,4,"['path', '##nar', '##rative', '##s']",4
+psychonarratives,full_match,4,"['psycho', '##nar', '##rative', '##s']",4
+nonnarrated,stem_match,4,"['non', '##nar', '##rated']",3
+psychonarration,stem_match,4,"['psycho', '##nar', '##ration']",3
+approachnarrative,full_match,4,"['approach', '##nar', '##rative']",3
+snarrative,full_match,4,"['s', '##nar', '##rative']",3
+innarrative,full_match,4,"['inn', '##ar', '##rative']",3
+narrativität,stem_match,4,"['na', '##rra', '##tiv', '##ita', '##t']",5
+genarrator,stem_match,4,"['gen', '##ar', '##rator']",3
+econarratives,full_match,4,"['eco', '##nar', '##rative', '##s']",4
+extranarrative,full_match,4,"['extra', '##nar', '##rative']",3
+narratologic,stem_match,4,"['na', '##rra', '##to', '##logic']",4
+narratalogical,stem_match,4,"['na', '##rra', '##tal', '##ogical']",4
+personalnarrative,full_match,4,"['personal', '##nar', '##rative']",3
+neonarrative,full_match,4,"['neon', '##ar', '##rative']",3
+ludonarratives,full_match,4,"['lu', '##don', '##ar', '##rative', '##s']",5
+mininarratives,full_match,4,"['mini', '##nar', '##rative', '##s']",4
+narratieve,stem_match,4,"['na', '##rra', '##tie', '##ve']",4
+denarrated,stem_match,4,"['den', '##ar', '##rated']",3
+narrateurs,stem_match,4,"['na', '##rra', '##te', '##urs']",4
+polynarrative,full_match,3,"['poly', '##nar', '##rative']",3
+antinarrativity,stem_match,3,"['anti', '##nar', '##rat', '##ivity']",4
+resultsnarrative,full_match,3,"['results', '##nar', '##rative']",3
+socionarrative,full_match,3,"['socio', '##nar', '##rative']",3
+thenarrator,stem_match,3,"['then', '##ar', '##rator']",3
+audionarratological,stem_match,3,"['audio', '##nar', '##rat', '##ological']",4
+subnarrative,full_match,3,"['sub', '##nar', '##rative']",3
+transnarrativity,stem_match,3,"['trans', '##nar', '##rat', '##ivity']",4
+selfnarrative,full_match,3,"['self', '##nar', '##rative']",3
+overnarrated,stem_match,3,"['over', '##nar', '##rated']",3
+antinarratable,stem_match,3,"['anti', '##nar', '##rata', '##ble']",4
+narratologische,stem_match,3,"['na', '##rra', '##to', '##log', '##ische']",5
+necronarratives,full_match,3,"['nec', '##rona', '##rra', '##tive', '##s']",5
+postnarrative,full_match,3,"['post', '##nar', '##rative']",3
+narrativesthe,full_match,3,"['narratives', '##the']",2
+narrativs,stem_match,3,"['na', '##rra', '##tiv', '##s']",4
+narratization,stem_match,3,"['na', '##rra', '##ti', '##zation']",4
+narrativus,stem_match,3,"['na', '##rra', '##tiv', '##us']",4
+narrativetext,full_match,3,"['narrative', '##text']",2
+narrativefactscore,full_match,3,"['narrative', '##fa', '##cts', '##core']",4
+narrativein,full_match,3,"['narrative', '##in']",2
+geonarrative,full_match,3,"['geo', '##nar', '##rative']",3
+narrativebridge,full_match,3,"['narrative', '##bridge']",2
+narrativebased,full_match,3,"['narrative', '##base', '##d']",3
+narconarrativa,stem_match,3,"['na', '##rco', '##nar', '##rat', '##iva']",5
+multinarrative,full_match,3,"['multi', '##nar', '##rative']",3
+virtunarrator,stem_match,3,"['vi', '##rt', '##una', '##rra', '##tor']",5
+ukelectionnarratives,full_match,2,"['uk', '##ele', '##ction', '##nar', '##rative', '##s']",6
+worldnarrative,full_match,2,"['world', '##nar', '##rative']",3
+ludonarratification,stem_match,2,"['lu', '##don', '##ar', '##rat', '##ification']",5
+ludonarrativecoherence,full_match,2,"['lu', '##don', '##ar', '##rative', '##co', '##her', '##ence']",7
+anarrativity,stem_match,2,"['ana', '##rra', '##tiv', '##ity']",4
+tnarrative,full_match,2,"['tna', '##rra', '##tive']",3
+transnarrative,full_match,2,"['trans', '##nar', '##rative']",3
+supranarratable,stem_match,2,"['su', '##pr', '##ana', '##rra', '##table']",5
+theirnarratives,full_match,2,"['their', '##nar', '##rative', '##s']",4
+selfnarratives,full_match,2,"['self', '##nar', '##rative', '##s']",4
+snarratives,full_match,2,"['s', '##nar', '##rative', '##s']",4
+approachnarratives,full_match,2,"['approach', '##nar', '##rative', '##s']",4
+renarrativize,stem_match,2,"['ren', '##ar', '##rat', '##iv', '##ize']",5
+protonarratives,full_match,2,"['proton', '##ar', '##rative', '##s']",4
+purposenarrative,full_match,2,"['purpose', '##nar', '##rative']",3
+petronarratives,full_match,2,"['pet', '##rona', '##rra', '##tive', '##s']",5
+postnarrativism,stem_match,2,"['post', '##nar', '##rat', '##ivism']",4
+postnarrativity,stem_match,2,"['post', '##nar', '##rat', '##ivity']",4
+prenarrativist,stem_match,2,"['pre', '##nar', '##rat', '##ivist']",4
+protagonistnarrator,stem_match,2,"['protagonist', '##nar', '##rator']",3
+metanarrator,stem_match,2,"['meta', '##nar', '##rator']",3
+conarrations,stem_match,2,"['con', '##ar', '##rations']",3
+autonarrativa,stem_match,2,"['auto', '##nar', '##rat', '##iva']",4
+autonarratives,full_match,2,"['auto', '##nar', '##rative', '##s']",4
+paranarratives,full_match,2,"['parana', '##rra', '##tive', '##s']",4
+nonnarrativity,stem_match,2,"['non', '##nar', '##rat', '##ivity']",4
+nonnarratorial,stem_match,2,"['non', '##nar', '##rator', '##ial']",4
+ofnarration,stem_match,2,"['of', '##nar', '##ration']",3
+ofnarratives,full_match,2,"['of', '##nar', '##rative', '##s']",4
+narratívák,stem_match,2,"['na', '##rra', '##tiv', '##ak']",4
+nonnarratable,stem_match,2,"['non', '##nar', '##rata', '##ble']",4
+narratory,stem_match,2,"['narrator', '##y']",2
+narratrix,stem_match,2,"['na', '##rra', '##trix']",3
+narratur,stem_match,2,"['na', '##rra', '##tur']",3
+narratedin,stem_match,2,"['narrated', '##in']",2
+multinarration,stem_match,2,"['multi', '##nar', '##ration']",3
+metanarrativas,stem_match,2,"['meta', '##nar', '##rat', '##iva', '##s']",5
+narratorem,stem_match,2,"['narrator', '##em']",2
+counternarrating,stem_match,2,"['counter', '##nar', '##rating']",3
+narratologia,stem_match,2,"['na', '##rra', '##to', '##log', '##ia']",5
+narratologico,stem_match,2,"['na', '##rra', '##to', '##logic', '##o']",5
+cosmonarrative,full_match,2,"['co', '##smo', '##nar', '##rative']",4
+narrativisierung,stem_match,2,"['na', '##rra', '##tiv', '##isi', '##er', '##ung']",6
+enarratio,stem_match,2,"['en', '##ar', '##rat', '##io']",4
+denarrativization,stem_match,2,"['den', '##ar', '##rat', '##iv', '##ization']",5
+narrativisés,stem_match,2,"['na', '##rra', '##tiv', '##ises']",4
+narrativities,stem_match,2,"['na', '##rra', '##tiv', '##ities']",4
+narrativeʼ,full_match,2,"['narrative', '##ʼ']",2
+narrativetheory,full_match,2,"['narrative', '##the', '##ory']",3
+narrativesfrom,full_match,2,"['narratives', '##fr', '##om']",3
+narratator,stem_match,2,"['na', '##rra', '##tat', '##or']",4
+learningidentitynarrativeout,full_match,2,"['learning', '##ide', '##nti', '##tyn', '##ar', '##rative', '##out']",7
+learningnarrativeout,full_match,2,"['learning', '##nar', '##rative', '##out']",4
+linguonarratology,stem_match,2,"['ling', '##uo', '##nar', '##rat', '##ology']",5
+narrativesin,full_match,2,"['narratives', '##in']",2
+narrativesthis,full_match,2,"['narratives', '##thi', '##s']",3
+narratives1,full_match,2,"['narratives', '##1']",2
+narratives4change,full_match,2,"['narratives', '##4', '##chang', '##e']",4
+narrativesand,full_match,2,"['narratives', '##and']",2
+narrativesare,full_match,2,"['narratives', '##are']",2
+narrativesas,full_match,2,"['narratives', '##as']",2
+narrativescience,full_match,2,"['narratives', '##cie', '##nce']",3
+narrativeinquiry,full_match,2,"['narrative', '##in', '##qui', '##ry']",4
+identitynarrativeout,full_match,2,"['identity', '##nar', '##rative', '##out']",4
+findingsnarrative,full_match,2,"['findings', '##nar', '##rative']",3
+narrativeline,full_match,2,"['narrative', '##line']",2
+narrativeml,full_match,2,"['narrative', '##ml']",2
+narrationes,stem_match,2,"['narration', '##es']",2
+narrationin,stem_match,2,"['narration', '##in']",2
+narratieven,stem_match,2,"['na', '##rra', '##tie', '##ven']",4
+narratiive,stem_match,2,"['na', '##rra', '##ti', '##ive']",4
+narratived,full_match,2,"['narrative', '##d']",2
+narrativedocumentary,full_match,2,"['narrative', '##do', '##cum', '##ent', '##ary']",5
+narrativedriven,full_match,2,"['narrative', '##drive', '##n']",3
+narrativeaccounts,full_match,2,"['narrative', '##ac', '##co', '##unt', '##s']",5
+narrativeanalysis,full_match,2,"['narrative', '##analysis']",2
+narrativeapproaches,full_match,2,"['narrative', '##app', '##ro', '##ache', '##s']",5
+narrativally,stem_match,2,"['na', '##rra', '##tiv', '##ally']",4
+intranarrative,full_match,2,"['intra', '##nar', '##rative']",3
+altnarrative,full_match,2,"['alt', '##nar', '##rative']",3
+xenonarrative,full_match,2,"['x', '##eno', '##nar', '##rative']",4
+zoonarratology,stem_match,2,"['zoo', '##nar', '##rat', '##ology']",4
+œnarrative,full_match,2,"['œ', '##nar', '##rative']",3
+thenarratives,full_match,2,"['then', '##ar', '##rative', '##s']",4
+writingnarrative,full_match,2,"['writing', '##nar', '##rative']",3
+undernarrated,stem_match,2,"['under', '##nar', '##rated']",3
+_narrative,full_match,1,"['_', 'narrative']",2
+4narrative,full_match,1,"['4', '##nar', '##rative']",3
+volksnarrationen,stem_match,1,"['vol', '##ks', '##nar', '##ration', '##en']",5
+visualnarrative,full_match,1,"['visual', '##nar', '##rative']",3
+abroadnarrative,full_match,1,"['abroad', '##nar', '##rative']",3
+病跡学にみられるようなnarrativeな方法を採ることになるであろう,full_match,1,"['[UNK]', '[UNK]', '学', 'に', '##み', '##ら', '##れ', '##る', '##よ', '##う', '##な', '##nar', '##rative', '##な', '方', '法', 'を', '[UNK]', 'る', '##こ', '##と', '##に', '##な', '##る', '##て', '##あ', '##ろ', '##う']",28
+3narrative,full_match,1,"['3', '##nar', '##rative']",3
+valuenarrative,full_match,1,"['value', '##nar', '##rative']",3
+usenarrative,full_match,1,"['use', '##nar', '##rative']",3
+usednarrative,full_match,1,"['used', '##nar', '##rative']",3
+unnarratizable,stem_match,1,"['un', '##nar', '##rat', '##iza', '##ble']",5
+micronarrations,stem_match,1,"['micro', '##nar', '##rations']",3
+ludonarratify,stem_match,1,"['lu', '##don', '##ar', '##rat', '##ify']",5
+ludonarratology,stem_match,1,"['lu', '##don', '##ar', '##rat', '##ology']",5
+anarrator,stem_match,1,"['ana', '##rra', '##tor']",3
+andnarratives,full_match,1,"['and', '##nar', '##rative', '##s']",4
+andnarrativity,stem_match,1,"['and', '##nar', '##rat', '##ivity']",4
+andpromotingthenarrativethatblackand,full_match,1,"['and', '##pro', '##mot', '##ing', '##the', '##nar', '##rative', '##tha', '##t', '##bla', '##ck', '##and']",12
+1narratological,stem_match,1,"['1', '##nar', '##rat', '##ological']",4
+2keywordsnarrative,full_match,1,"['2', '##key', '##words', '##nar', '##rative']",5
+wasserstoffnarrativ,stem_match,1,"['was', '##ser', '##sto', '##ff', '##nar', '##rat', '##iv']",7
+wenarrators,stem_match,1,"['wen', '##ar', '##rator', '##s']",4
+1narrating,stem_match,1,"['1', '##nar', '##rating']",3
+throughtheirownnarratives,full_match,1,"['through', '##the', '##iro', '##wn', '##nar', '##rative', '##s']",7
+tothenarrator,stem_match,1,"['to', '##the', '##nar', '##rator']",4
+translatingnarrative,full_match,1,"['translating', '##nar', '##rative']",3
+translatornarrators,stem_match,1,"['translator', '##nar', '##rator', '##s']",4
+narrative2,full_match,1,"['narrative', '##2']",2
+narrative3,full_match,1,"['narrative', '##3']",2
+narrative4,full_match,1,"['narrative', '##4']",2
+narratiivit,stem_match,1,"['na', '##rra', '##ti', '##iv', '##it']",5
+narratime,stem_match,1,"['na', '##rra', '##time']",3
+narratims,stem_match,1,"['na', '##rra', '##ti', '##ms']",4
+narratingmyshkin,stem_match,1,"['na', '##rra', '##ting', '##my', '##sh', '##kin']",6
+narratiology,stem_match,1,"['na', '##rra', '##ti', '##ology']",4
+instructionalnarrative,full_match,1,"['instructional', '##nar', '##rative']",3
+internarrational,stem_match,1,"['intern', '##ar', '##ration', '##al']",4
+interventionpeacebuildingstatebuildingnarrativeurban,full_match,1,"['intervention', '##pe', '##ace', '##building', '##sta', '##te', '##building', '##nar', '##rative', '##ur', '##ban']",11
+inthetextwheretherelevantinstanceofnarrativedisruptionbeginsandends,full_match,1,"['int', '##het', '##ex', '##t', '##w', '##her', '##eth', '##ere', '##lev', '##ant', '##ins', '##tance', '##of', '##nar', '##rative', '##dis', '##rup', '##tion', '##be', '##gins', '##and', '##end', '##s']",23
+intranarrational,stem_match,1,"['intra', '##nar', '##ration', '##al']",4
+introductionnarrative,full_match,1,"['introduction', '##nar', '##rative']",3
+grandnarrative,full_match,1,"['grand', '##nar', '##rative']",3
+grandnarratives,full_match,1,"['grand', '##nar', '##rative', '##s']",4
+narrativealber,full_match,1,"['narrative', '##al', '##ber']",3
+narrativealigned,full_match,1,"['narrative', '##ali', '##gned']",3
+narrativealleged,full_match,1,"['narrative', '##alle', '##ged']",3
+narrativeamerican,full_match,1,"['narrative', '##ame', '##rica', '##n']",4
+narrativeand,full_match,1,"['narrative', '##and']",2
+narrativeandsituates,full_match,1,"['narrative', '##ands', '##it', '##uate', '##s']",5
+narrativeas,full_match,1,"['narrative', '##as']",2
+narrativeassessment,full_match,1,"['narrative', '##asse', '##ss', '##ment']",4
+narrativeauthoritative,full_match,1,"['narrative', '##au', '##thor', '##itative']",4
+narrativeauthors,full_match,1,"['narrative', '##au', '##thor', '##s']",4
+narrationwould,stem_match,1,"['narration', '##wo', '##uld']",3
+narratisation,stem_match,1,"['na', '##rra', '##tis', '##ation']",4
+narrativasde,stem_match,1,"['na', '##rra', '##tiv', '##as', '##de']",5
+narrativasemocionais,stem_match,1,"['na', '##rra', '##tiv', '##ase', '##mo', '##cion', '##ais']",7
+narrativation,stem_match,1,"['na', '##rra', '##tiv', '##ation']",4
+narrativats,stem_match,1,"['na', '##rra', '##tiv', '##ats']",4
+narrativeglobal,full_match,1,"['narrative', '##gl', '##ob', '##al']",4
+narrativegovernment,full_match,1,"['narrative', '##go', '##vern', '##ment']",4
+narrativeblack,full_match,1,"['narrative', '##bla', '##ck']",3
+narrativecantransformarteducationbasedonnationalidentity,full_match,1,"['narrative', '##can', '##tra', '##ns', '##form', '##arte', '##du', '##cation', '##base', '##don', '##national', '##ide', '##nti', '##ty']",14
+narrativecarriers,full_match,1,"['narrative', '##car', '##rier', '##s']",4
+narrativecentered,full_match,1,"['narrative', '##cent', '##ered']",3
+narrativecommunicative,full_match,1,"['narrative', '##com', '##mun', '##icative']",4
+narrativecomposition,full_match,1,"['narrative', '##com', '##position']",3
+narrativeconveyed,full_match,1,"['narrative', '##con', '##vey', '##ed']",4
+narrativedaily,full_match,1,"['narrative', '##dai', '##ly']",3
+narrativedramatic,full_match,1,"['narrative', '##dra', '##matic']",3
+narrativeed,full_match,1,"['narrative', '##ed']",2
+narrativeessays,full_match,1,"['narrative', '##ess', '##ays']",3
+narrative68,full_match,1,"['narrative', '##6', '##8']",3
+narrative_magazines_newsinvestment,full_match,1,"['narrative', '_', 'magazines', '_', 'news', '##in', '##ves', '##tment']",8
+narrativeabout,full_match,1,"['narrative', '##ab', '##out']",3
+narrationthese,stem_match,1,"['narration', '##thes', '##e']",3
+narrationum,stem_match,1,"['narration', '##um']",2
+narratex,stem_match,1,"['na', '##rra', '##te', '##x']",4
+narrati1,stem_match,1,"['na', '##rra', '##ti', '##1']",4
+narratibe,stem_match,1,"['na', '##rra', '##ti', '##be']",4
+narratibility,stem_match,1,"['na', '##rra', '##ti', '##bility']",4
+narratiiveissa,stem_match,1,"['na', '##rra', '##ti', '##ive', '##issa']",5
+narratiivinen,stem_match,1,"['na', '##rra', '##ti', '##iv', '##inen']",5
+narconarratives,full_match,1,"['na', '##rco', '##nar', '##rative', '##s']",5
+narratalogists,stem_match,1,"['na', '##rra', '##tal', '##ogist', '##s']",5
+narrativeforms,full_match,1,"['narrative', '##forms']",2
+narrativefreearun,full_match,1,"['narrative', '##free', '##aru', '##n']",4
+narrativefreemónica,full_match,1,"['narrative', '##free', '##mon', '##ica']",4
+narrativegame,full_match,1,"['narrative', '##game']",2
+narrativegenrebecausetheyemergefromwhite,full_match,1,"['narrative', '##gen', '##re', '##be', '##ca', '##use', '##the', '##ye', '##mer', '##ge', '##fr', '##om', '##w', '##hit', '##e']",15
+narrativegenres,full_match,1,"['narrative', '##gen', '##res']",3
+falselynarrated,stem_match,1,"['falsely', '##nar', '##rated']",3
+feindnarrativen,full_match,1,"['fein', '##dna', '##rra', '##tive', '##n']",5
+filmnarrative,full_match,1,"['film', '##nar', '##rative']",3
+narrativeliminal,full_match,1,"['narrative', '##lim', '##inal']",3
+narrativemarginal,full_match,1,"['narrative', '##mar', '##ginal']",3
+narrativemedicine,full_match,1,"['narrative', '##med', '##ici', '##ne']",4
+narrativemodalities,full_match,1,"['narrative', '##mo', '##dal', '##ities']",4
+narrativemodes,full_match,1,"['narrative', '##mo', '##des']",3
+narrativeevents,full_match,1,"['narrative', '##eve', '##nts']",3
+narrativeexegesis,full_match,1,"['narrative', '##ex', '##ege', '##sis']",4
+narrativeexpectations,full_match,1,"['narrative', '##ex', '##pe', '##cta', '##tions']",5
+narrativefeatures,full_match,1,"['narrative', '##fe', '##at', '##ures']",4
+narrativeflow,full_match,1,"['narrative', '##flow']",2
+narrativefocused,full_match,1,"['narrative', '##fo', '##cus', '##ed']",4
+narrationapproach,stem_match,1,"['narration', '##app', '##ro', '##ach']",4
+narrationen,stem_match,1,"['narration', '##en']",2
+narrativereading,full_match,1,"['narrative', '##rea', '##ding']",3
+narrativereality,full_match,1,"['narrative', '##real', '##ity']",3
+narrativereason,full_match,1,"['narrative', '##rea', '##son']",3
+narrativehood,full_match,1,"['narrative', '##hood']",2
+narrativeintervention,full_match,1,"['narrative', '##int', '##er', '##vent', '##ion']",5
+narrativelatin,full_match,1,"['narrative', '##lat', '##in']",3
+narrativelevel,full_match,1,"['narrative', '##lev', '##el']",3
+historicalnarrative,full_match,1,"['historical', '##nar', '##rative']",3
+humanitynarrative,full_match,1,"['humanity', '##nar', '##rative']",3
+hypernarratives,full_match,1,"['hyper', '##nar', '##rative', '##s']",4
+hypernarrator,stem_match,1,"['hyper', '##nar', '##rator']",3
+hyponarrativity,stem_match,1,"['h', '##yp', '##ona', '##rra', '##tiv', '##ity']",6
+identitymotivationnarrativeout,full_match,1,"['identity', '##mot', '##ivation', '##nar', '##rative', '##out']",6
+identitynarrative,full_match,1,"['identity', '##nar', '##rative']",3
+expressionarration,stem_match,1,"['expression', '##ar', '##ration']",3
+faithnarrative,full_match,1,"['faith', '##nar', '##rative']",3
+narrativereligious,full_match,1,"['narrative', '##rel', '##ig', '##ious']",4
+narrativeresearch,full_match,1,"['narrative', '##res', '##ear', '##ch']",4
+narratives2,full_match,1,"['narratives', '##2']",2
+narratives_covid19,full_match,1,"['narratives', '_', 'co', '##vid', '##19']",5
+narrativesabout,full_match,1,"['narratives', '##ab', '##out']",3
+narrativesbecome,full_match,1,"['narratives', '##be', '##com', '##e']",4
+narrativesby,full_match,1,"['narratives', '##by']",2
+narrativescolonialismhistorical,full_match,1,"['narratives', '##col', '##onia', '##lism', '##his', '##tori', '##cal']",7
+narrativenaturalize,full_match,1,"['narrative', '##nat', '##ural', '##ize']",4
+narrativenuclear,full_match,1,"['narrative', '##nu', '##cle', '##ar']",4
+narrativeof,full_match,1,"['narrative', '##of']",2
+narrativeofhis,full_match,1,"['narrative', '##of', '##his']",3
+narrativephysicality,full_match,1,"['narrative', '##physical', '##ity']",3
+narrativepop,full_match,1,"['narrative', '##pop']",2
+narrativepower,full_match,1,"['narrative', '##power']",2
+narrativepresented,full_match,1,"['narrative', '##pres', '##ented']",3
+foranarrativelevelchange,full_match,1,"['for', '##ana', '##rra', '##tive', '##lev', '##el', '##chang', '##e']",8
+formnarrative,full_match,1,"['form', '##nar', '##rative']",3
+fotonarrativas,stem_match,1,"['f', '##oton', '##ar', '##rat', '##iva', '##s']",6
+freenarrating,stem_match,1,"['free', '##nar', '##rating']",3
+fromnarrative,full_match,1,"['from', '##nar', '##rative']",3
+fromtravelnarratives,full_match,1,"['from', '##tra', '##vel', '##nar', '##rative', '##s']",6
+ecogothicnarratives,full_match,1,"['eco', '##go', '##thic', '##nar', '##rative', '##s']",6
+econarratologically,stem_match,1,"['eco', '##nar', '##rat', '##ological', '##ly']",5
+emergentnarratives,full_match,1,"['emerge', '##nt', '##nar', '##rative', '##s']",5
+narrativeskatie,full_match,1,"['narratives', '##kat', '##ie']",3
+narrativesnarrative,full_match,1,"['narratives', '##nar', '##rative']",3
+narrativesnarratives,full_match,1,"['narratives', '##nar', '##rative', '##s']",4
+narrativesp,full_match,1,"['narratives', '##p']",2
+narrativespresented,full_match,1,"['narratives', '##pres', '##ented']",3
+narrativesprovide,full_match,1,"['narratives', '##pro', '##vid', '##e']",4
+narrativereferences1,full_match,1,"['narrative', '##re', '##ference', '##s', '##1']",5
+kriegsnarrative,full_match,1,"['k', '##rie', '##gs', '##nar', '##rative']",5
+krisennarrativ,stem_match,1,"['kris', '##enna', '##rra', '##tiv']",4
+landskapnarratiewe,stem_match,1,"['lands', '##ka', '##p', '##nar', '##rat', '##ie', '##we']",7
+learningnarrativelearning,full_match,1,"['learning', '##nar', '##rative', '##lea', '##rn', '##ing']",6
+literacynarrative,full_match,1,"['literacy', '##nar', '##rative']",3
+idionarration,stem_match,1,"['id', '##ion', '##ar', '##ration']",4
+implicationsantenarratives,full_match,1,"['implications', '##ante', '##nar', '##rative', '##s']",5
+inarration,stem_match,1,"['ina', '##rra', '##tion']",3
+increasesnarrative,full_match,1,"['increases', '##nar', '##rative']",3
+indepthnarrative,full_match,1,"['ind', '##ept', '##hn', '##ar', '##rative']",5
+instanarratives,full_match,1,"['ins', '##tana', '##rra', '##tive', '##s']",5
+narrativesinemoji,full_match,1,"['narratives', '##ine', '##mo', '##ji']",4
+narrativesinterpretations,full_match,1,"['narratives', '##int', '##er', '##pre', '##tation', '##s']",6
+narrativesjanet,full_match,1,"['narratives', '##jan', '##et']",3
+findingsnarratives,full_match,1,"['findings', '##nar', '##rative', '##s']",4
+folklorenarrativen,full_match,1,"['folklore', '##nar', '##rative', '##n']",4
+narrativesto,full_match,1,"['narratives', '##to']",2
+narrativestroubling,full_match,1,"['narratives', '##tro', '##ub', '##ling']",4
+narrativestructure,full_match,1,"['narratives', '##truct', '##ure']",3
+narrativestyle,full_match,1,"['narratives', '##tyle']",2
+narrativesvalue,full_match,1,"['narratives', '##val', '##ue']",3
+narrativesvto,full_match,1,"['narratives', '##v', '##to']",3
+narrativeswhich,full_match,1,"['narratives', '##w', '##hic', '##h']",4
+narrativesâ,full_match,1,"['narratives', '##a']",2
+narrativetransformation,full_match,1,"['narrative', '##tra', '##ns', '##form', '##ation']",5
+narrativeultimate,full_match,1,"['narrative', '##ult', '##imate']",3
+narrativevigil,full_match,1,"['narrative', '##vi', '##gil']",3
+narrativewere,full_match,1,"['narrative', '##wer', '##e']",3
+narrativewhere,full_match,1,"['narrative', '##w', '##her', '##e']",4
+narrativeseco,full_match,1,"['narratives', '##ec', '##o']",3
+narrativesecret,full_match,1,"['narratives', '##ec', '##ret']",3
+krankheitsnarrativen,full_match,1,"['k', '##rank', '##hei', '##ts', '##nar', '##rative', '##n']",7
+denarrativize,stem_match,1,"['den', '##ar', '##rat', '##iv', '##ize']",5
+denarrativizing,stem_match,1,"['den', '##ar', '##rat', '##iv', '##izing']",5
+narrativitiy,stem_match,1,"['na', '##rra', '##tiv', '##iti', '##y']",5
+narrativity6,stem_match,1,"['na', '##rra', '##tiv', '##ity', '##6']",5
+narrativitya,stem_match,1,"['na', '##rra', '##tiv', '##ity', '##a']",5
+narrativiza,stem_match,1,"['na', '##rra', '##tiv', '##iza']",4
+narrativizante,stem_match,1,"['na', '##rra', '##tiv', '##izan', '##te']",5
+narrativewith,full_match,1,"['narrative', '##with']",2
+narrativewithin,full_match,1,"['narrative', '##with', '##in']",3
+narrative에,full_match,1,"['narrative', '##ᄋ', '##ᅦ']",3
+narratividades,stem_match,1,"['na', '##rra', '##tiv', '##idad', '##es']",5
+narrativieren,stem_match,1,"['na', '##rra', '##tiv', '##iere', '##n']",5
+narrativierung,stem_match,1,"['na', '##rra', '##tiv', '##ier', '##ung']",5
+narrativierungsstrategien,stem_match,1,"['na', '##rra', '##tiv', '##ier', '##ung', '##ss', '##tra', '##te', '##gie', '##n']",10
+narrativisating,stem_match,1,"['na', '##rra', '##tiv', '##isa', '##ting']",5
+narrativisations,stem_match,1,"['na', '##rra', '##tiv', '##isation', '##s']",5
+constructivistnarrative,full_match,1,"['construct', '##ivist', '##nar', '##rative']",4
+contranarrativa,stem_match,1,"['contra', '##nar', '##rat', '##iva']",4
+copingnarratives,full_match,1,"['coping', '##nar', '##rative', '##s']",4
+coredefinitionsofnarrativelevels,full_match,1,"['core', '##de', '##fin', '##ition', '##so', '##f', '##nar', '##rative', '##lev', '##els']",10
+corpusnarrative,full_match,1,"['corpus', '##nar', '##rative']",3
+narratize,stem_match,1,"['na', '##rra', '##ti', '##ze']",4
+narratizing,stem_match,1,"['na', '##rra', '##ti', '##zing']",4
+narratogogy,stem_match,1,"['na', '##rra', '##to', '##go', '##gy']",5
+enarrationes,stem_match,1,"['en', '##ar', '##ration', '##es']",4
+enarrations,stem_match,1,"['en', '##ar', '##rations']",3
+encounternarratives,full_match,1,"['encounter', '##nar', '##rative', '##s']",4
+ensuingnarrativeistrivial,full_match,1,"['ensuing', '##nar', '##rative', '##ist', '##ri', '##vial']",6
+explorernarrator,stem_match,1,"['explorer', '##nar', '##rator']",3
+exposenarratives,full_match,1,"['expose', '##nar', '##rative', '##s']",4
+denarrativisation,stem_match,1,"['den', '##ar', '##rat', '##iv', '##isation']",5
+denarrativises,stem_match,1,"['den', '##ar', '##rat', '##iv', '##ises']",5
+narratol,stem_match,1,"['na', '##rra', '##to', '##l']",4
+narratologen,stem_match,1,"['na', '##rra', '##to', '##log', '##en']",5
+narratologicalapproachgábor,stem_match,1,"['na', '##rra', '##to', '##logical', '##app', '##ro', '##ach', '##ga', '##bor']",9
+narratologicalwritings,stem_match,1,"['na', '##rra', '##to', '##logical', '##writing', '##s']",6
+narratologiczna,stem_match,1,"['na', '##rra', '##to', '##logic', '##z', '##na']",6
+narratologiese,stem_match,1,"['na', '##rra', '##to', '##logies', '##e']",5
+narratologii,stem_match,1,"['na', '##rra', '##to', '##log', '##ii']",5
+narratologique,stem_match,1,"['na', '##rra', '##to', '##log', '##ique']",5
+destinationnarratives,full_match,1,"['destination', '##nar', '##rative', '##s']",4
+disnarrate,stem_match,1,"['di', '##s', '##nar', '##rate']",4
+disnarrating,stem_match,1,"['di', '##s', '##nar', '##rating']",4
+disordernarrative,full_match,1,"['disorder', '##nar', '##rative']",3
+domstolsnarrativ,stem_match,1,"['dom', '##sto', '##ls', '##nar', '##rat', '##iv']",6
+dysnarrative,full_match,1,"['d', '##ys', '##nar', '##rative']",4
+dysnarrativity,stem_match,1,"['d', '##ys', '##nar', '##rat', '##ivity']",5
+constraintsofacademicwritingandtowardanarrative,full_match,1,"['constraints', '##of', '##aca', '##de', '##mic', '##writing', '##and', '##tow', '##ard', '##ana', '##rra', '##tive']",12
+cardsnarratives,full_match,1,"['cards', '##nar', '##rative', '##s']",4
+centurynarrative,full_match,1,"['century', '##nar', '##rative']",3
+chrononarratological,stem_match,1,"['ch', '##ron', '##ona', '##rra', '##to', '##logical']",6
+circumnarrated,stem_match,1,"['ci', '##rc', '##um', '##nar', '##rated']",5
+circumnarration,stem_match,1,"['ci', '##rc', '##um', '##nar', '##ration']",5
+clipsnarrative,full_match,1,"['clips', '##nar', '##rative']",3
+narratologyimpersonationnarrative,full_match,1,"['na', '##rra', '##tology', '##im', '##person', '##ation', '##nar', '##rative']",8
+narratologymakes,stem_match,1,"['na', '##rra', '##tology', '##ma', '##kes']",5
+narratologys,stem_match,1,"['na', '##rra', '##tology', '##s']",4
+narratologyʼs,stem_match,1,"['na', '##rra', '##tology', '##ʼ', '##s']",5
+narratolological,stem_match,1,"['na', '##rra', '##to', '##lo', '##logical']",5
+narratológiai,stem_match,1,"['na', '##rra', '##to', '##log', '##ia', '##i']",6
+narratológicamente,stem_match,1,"['na', '##rra', '##to', '##logic', '##ament', '##e']",6
+narratológicos,stem_match,1,"['na', '##rra', '##to', '##logic', '##os']",5
+narratomimetic,stem_match,1,"['na', '##rra', '##tom', '##ime', '##tic']",5
+narratography,stem_match,1,"['na', '##rra', '##to', '##graphy']",4
+narratordescribes,stem_match,1,"['narrator', '##des', '##cr', '##ibe', '##s']",5
+narratore,stem_match,1,"['narrator', '##e']",2
+narratorhistorical,stem_match,1,"['narrator', '##his', '##tori', '##cal']",4
+narratori,stem_match,1,"['narrator', '##i']",2
+narratorical,stem_match,1,"['narrator', '##ical']",2
+narratorless,stem_match,1,"['narrator', '##less']",2
+narratorobserver,stem_match,1,"['narrator', '##ob', '##ser', '##ver']",4
+narratorsa,stem_match,1,"['narrator', '##sa']",2
+narratologiques,stem_match,1,"['na', '##rra', '##to', '##log', '##iques']",5
+narratologischer,stem_match,1,"['na', '##rra', '##to', '##log', '##ische', '##r']",6
+narratologiststancethat,stem_match,1,"['na', '##rra', '##to', '##logists', '##tance', '##tha', '##t']",7
+coulthardnarrative,full_match,1,"['co', '##ult', '##hard', '##nar', '##rative']",5
+counternarrates,stem_match,1,"['counter', '##nar', '##rates']",3
+counternarration,stem_match,1,"['counter', '##nar', '##ration']",3
+culturenarrative,full_match,1,"['culture', '##nar', '##rative']",3
+datanarrative,full_match,1,"['data', '##nar', '##rative']",3
+narrateother,stem_match,1,"['na', '##rra', '##te', '##oth', '##er']",5
+militantnarrative,full_match,1,"['militant', '##nar', '##rative']",3
+modernnarrativesofescapefrombondage,full_match,1,"['modern', '##nar', '##rative', '##so', '##fe', '##sca', '##pe', '##fr', '##om', '##bon', '##da', '##ge']",12
+modnarrativer,full_match,1,"['mod', '##nar', '##rative', '##r']",4
+morgannarrative,full_match,1,"['morgan', '##nar', '##rative']",3
+multiplenarrative,full_match,1,"['multiple', '##nar', '##rative']",3
+mythnarratives,full_match,1,"['myth', '##nar', '##rative', '##s']",4
+măštanarratifs,stem_match,1,"['mast', '##ana', '##rra', '##ti', '##fs']",5
+narconarrativas,stem_match,1,"['na', '##rco', '##nar', '##rat', '##iva', '##s']",6
+narconarrative,full_match,1,"['na', '##rco', '##nar', '##rative']",4
+memorynarrative,full_match,1,"['memory', '##nar', '##rative']",3
+macronarrativeframework,full_match,1,"['macro', '##nar', '##rative', '##frame', '##work']",5
+narratus,stem_match,1,"['na', '##rra', '##tus']",3
+narratopoetics,stem_match,1,"['na', '##rra', '##top', '##oe', '##tics']",5
+narrator2,stem_match,1,"['narrator', '##2']",2
+narratorbanville,stem_match,1,"['narrator', '##ban', '##ville']",3
+neuronarratology,stem_match,1,"['ne', '##uron', '##ar', '##rat', '##ology']",5
+newandtruenarrative,full_match,1,"['new', '##and', '##tr', '##uen', '##ar', '##rative']",6
+nnarratives,full_match,1,"['n', '##nar', '##rative', '##s']",4
+nnarrativity,stem_match,1,"['n', '##nar', '##rat', '##ivity']",4
+narratorscause,stem_match,1,"['narrator', '##sca', '##use']",3
+narratorsymbolic,stem_match,1,"['narrator', '##sy', '##mbo', '##lic']",4
+narratorsâ,stem_match,1,"['narrator', '##sa']",2
+narratorum,stem_match,1,"['narrator', '##um']",2
+narratorvia,stem_match,1,"['narrator', '##via']",2
+narratorʼs,stem_match,1,"['narrator', '##ʼ', '##s']",3
+narratosceptic,stem_match,1,"['na', '##rra', '##tos', '##ce', '##ptic']",5
+narratosceptics,stem_match,1,"['na', '##rra', '##tos', '##ce', '##ptic', '##s']",6
+narratrice,stem_match,1,"['na', '##rra', '##tric', '##e']",4
+narrats,stem_match,1,"['na', '##rra', '##ts']",3
+narratun,stem_match,1,"['na', '##rra', '##tu', '##n']",4
+narrate1,stem_match,1,"['na', '##rra', '##te', '##1']",4
+personarrative,full_match,1,"['persona', '##rra', '##tive']",3
+nonnarrator,stem_match,1,"['non', '##nar', '##rator']",3
+nonnarratorially,stem_match,1,"['non', '##nar', '##rator', '##ial', '##ly']",5
+nonrenarrative,full_match,1,"['non', '##ren', '##ar', '##rative']",4
+novelnarrativity,stem_match,1,"['novel', '##nar', '##rat', '##ivity']",4
+objectivenarrative,full_match,1,"['objective', '##nar', '##rative']",3
+ofnarrating,stem_match,1,"['of', '##nar', '##rating']",3
+ofnarratingillnessin,stem_match,1,"['of', '##nar', '##rating', '##ill', '##ness', '##in']",6
+ofnarrativesfor,full_match,1,"['of', '##nar', '##rative', '##sf', '##or']",5
+narratywu,stem_match,1,"['na', '##rra', '##ty', '##wu']",4
+narratywów,stem_match,1,"['na', '##rra', '##ty', '##wo', '##w']",5
+narratív,stem_match,1,"['na', '##rra', '##tiv']",3
+narratíva,stem_match,1,"['na', '##rra', '##tiv', '##a']",4
+narratġons,stem_match,1,"['na', '##rra', '##t', '##gon', '##s']",5
+narratıve,full_match,1,"['na', '##rra', '##t', '##ı', '##ve']",5
+neuronarrative,full_match,1,"['ne', '##uron', '##ar', '##rative']",4
+coherentnarratives,full_match,1,"['coherent', '##nar', '##rative', '##s']",4
+columbianarrative,full_match,1,"['columbian', '##ar', '##rative']",3
+competingnarratives,full_match,1,"['competing', '##nar', '##rative', '##s']",4
+conarrate,stem_match,1,"['con', '##ar', '##rate']",3
+conarrated,stem_match,1,"['con', '##ar', '##rated']",3
+conarration,stem_match,1,"['con', '##ar', '##ration']",3
+conclusionnarratives,full_match,1,"['conclusion', '##nar', '##rative', '##s']",4
+autonarration,stem_match,1,"['auto', '##nar', '##ration']",3
+autonarrational,stem_match,1,"['auto', '##nar', '##ration', '##al']",4
+autonarrative,full_match,1,"['auto', '##nar', '##rative']",3
+autonomynarrative,full_match,1,"['autonomy', '##nar', '##rative']",3
+aによって米国で開始された医学教育のムーブメントであるnarrative,full_match,1,"['a', '##に', '##よ', '##っ', '##て', '[UNK]', '国', 'て', '[UNK]', '[UNK]', 'さ', '##れ', '##た', '[UNK]', '学', '[UNK]', '[UNK]', 'の', '##ム', '##ー', '##フ', '##メ', '##ン', '##ト', '##て', '##あ', '##る', '##nar', '##rative']",29
+p0261narrative,full_match,1,"['p', '##0', '##26', '##1', '##nar', '##rative']",6
+partynarrative,full_match,1,"['party', '##nar', '##rative']",3
+periodnarrative,full_match,1,"['period', '##nar', '##rative']",3
+personalnarrativeofamericanlife,full_match,1,"['personal', '##nar', '##rative', '##of', '##ame', '##rica', '##nl', '##ife']",8
+matenarrative,full_match,1,"['mate', '##nar', '##rative']",3
+materialnarratives,full_match,1,"['material', '##nar', '##rative', '##s']",4
+introductionnarrativizing,stem_match,1,"['introduction', '##nar', '##rat', '##iv', '##izing']",5
+itnarrative,full_match,1,"['it', '##nar', '##rative']",3
+judicialnarratives,full_match,1,"['judicial', '##nar', '##rative', '##s']",4
+jørringnarrative,full_match,1,"['j', '##ø', '##rring', '##nar', '##rative']",5
+knarrator,stem_match,1,"['kn', '##ar', '##rator']",3
+knowingnachtraglichkeitnarrative,full_match,1,"['knowing', '##nac', '##ht', '##rag', '##lich', '##kei', '##t', '##nar', '##rative']",9
+metanarrativeness,full_match,1,"['meta', '##nar', '##rative', '##ness']",4
+metanarrativization,stem_match,1,"['meta', '##nar', '##rat', '##iv', '##ization']",5
+methodnarratives,full_match,1,"['method', '##nar', '##rative', '##s']",4
+methodsnarrative,full_match,1,"['methods', '##nar', '##rative']",3
+ounternarratives,full_match,1,"['ou', '##nte', '##rna', '##rra', '##tive', '##s']",6
+outbreaknarrative,full_match,1,"['outbreak', '##nar', '##rative']",3
+overnarration,stem_match,1,"['over', '##nar', '##ration']",3
+closednarratives,full_match,1,"['closed', '##nar', '##rative', '##s']",4
+readingnarrative,full_match,1,"['reading', '##nar', '##rative']",3
+relationsdiasporacaribbeancricketnarrative,full_match,1,"['relations', '##dia', '##sp', '##ora', '##car', '##ib', '##be', '##an', '##cr', '##ick', '##et', '##nar', '##rative']",13
+perspectivesnarratives,full_match,1,"['perspectives', '##nar', '##rative', '##s']",4
+petronarrative,full_match,1,"['pet', '##rona', '##rra', '##tive']",4
+photonarrative,full_match,1,"['photon', '##ar', '##rative']",3
+pilgrimnarratives,full_match,1,"['pilgrim', '##nar', '##rative', '##s']",4
+politicsnarrative,full_match,1,"['politics', '##nar', '##rative']",3
+povertynarrativesby,full_match,1,"['poverty', '##nar', '##rative', '##sby']",4
+principleofgradationinnarrativeswithineasternepicworks,full_match,1,"['principle', '##of', '##grad', '##ation', '##inn', '##ar', '##rative', '##sw', '##ith', '##ine', '##aster', '##ne', '##pic', '##works']",14
+protagonistnarrative,full_match,1,"['protagonist', '##nar', '##rative']",3
+ofnarrators,stem_match,1,"['of', '##nar', '##rator', '##s']",4
+onnarrative,full_match,1,"['on', '##nar', '##rative']",3
+opfernarrative,full_match,1,"['op', '##fer', '##nar', '##rative']",4
+managementnarrativeout,full_match,1,"['management', '##nar', '##rative', '##out']",4
+manysubsidiarynarratives,full_match,1,"['many', '##su', '##bs', '##idia', '##ryn', '##ar', '##rative', '##s']",8
+masculinitynarrative,full_match,1,"['mas', '##cu', '##lini', '##tyn', '##ar', '##rative']",6
+antinarrativism,stem_match,1,"['anti', '##nar', '##rat', '##ivism']",4
+antinarrativist,stem_match,1,"['anti', '##nar', '##rat', '##ivist']",4
+renarrativises,stem_match,1,"['ren', '##ar', '##rat', '##iv', '##ises']",5
+renarrativized,stem_match,1,"['ren', '##ar', '##rat', '##iv', '##ized']",5
+renarrativizes,stem_match,1,"['ren', '##ar', '##rat', '##iv', '##izes']",5
+resultsnarratives,full_match,1,"['results', '##nar', '##rative', '##s']",4
+romancenarratives,full_match,1,"['romance', '##nar', '##rative', '##s']",4
+rändenarratiivis,stem_match,1,"['rand', '##ena', '##rra', '##ti', '##iv', '##is']",6
+s1699narrativegod,full_match,1,"['s', '##16', '##9', '##9', '##nar', '##rative', '##go', '##d']",8
+protonarrations,stem_match,1,"['proton', '##ar', '##rations']",3
+protonarrative,full_match,1,"['proton', '##ar', '##rative']",3
+pseudonarrative,full_match,1,"['pseudo', '##nar', '##rative']",3
+pseudonarratives,full_match,1,"['pseudo', '##nar', '##rative', '##s']",4
+questionnarrative,full_match,1,"['question', '##nar', '##rative']",3
+quixotenarrative,full_match,1,"['qui', '##x', '##ote', '##nar', '##rative']",5
+readernarrative,full_match,1,"['reader', '##nar', '##rative']",3
+specialnarrator,stem_match,1,"['special', '##nar', '##rator']",3
+spektorseesnarrativerepresentation,full_match,1,"['sp', '##ek', '##tors', '##ees', '##nar', '##rative', '##re', '##pres', '##entation']",9
+storiesnarratives,full_match,1,"['stories', '##nar', '##rative', '##s']",4
+streamsnarrative,full_match,1,"['streams', '##nar', '##rative']",3
+studentscouldinterpretnationalnarratives,full_match,1,"['students', '##co', '##uld', '##int', '##er', '##pre', '##t', '##national', '##nar', '##rative', '##s']",11
+subnarratable,stem_match,1,"['sub', '##nar', '##rata', '##ble']",4
+renarrativised,stem_match,1,"['ren', '##ar', '##rat', '##iv', '##ised']",5
+backgroundnarrative,full_match,1,"['background', '##nar', '##rative']",3
+barthelmenarrativeviolencesexualityfather,full_match,1,"['bart', '##helm', '##ena', '##rra', '##tive', '##vio', '##lence', '##se', '##x', '##ual', '##ity', '##fat', '##her']",13
+bionarrative,full_match,1,"['bio', '##nar', '##rative']",3
+bodiesnarrative,full_match,1,"['bodies', '##nar', '##rative']",3
+bogányinarrative,full_match,1,"['bog', '##any', '##ina', '##rra', '##tive']",5
+bullyingnarrative,full_match,1,"['bullying', '##nar', '##rative']",3
+byidentifyingdifferenttypesofnarrators,stem_match,1,"['by', '##ide', '##nti', '##fying', '##di', '##ffer', '##ent', '##type', '##so', '##f', '##nar', '##rator', '##s']",13
+bynarratives,full_match,1,"['by', '##nar', '##rative', '##s']",4
+captivitynarrative,full_match,1,"['captivity', '##nar', '##rative']",3
+transnarration,stem_match,1,"['trans', '##nar', '##ration']",3
+summarynarratives,full_match,1,"['summary', '##nar', '##rative', '##s']",4
+supernarrative,full_match,1,"['super', '##nar', '##rative']",3
+supernarratives,full_match,1,"['super', '##nar', '##rative', '##s']",4
+teachingheterotopianarrativeout,full_match,1,"['teaching', '##het', '##ero', '##top', '##iana', '##rra', '##tive', '##out']",8
+telenarrative,full_match,1,"['tel', '##ena', '##rra', '##tive']",4
+templenarrative,full_match,1,"['temple', '##nar', '##rative']",3
+tensionnarrative,full_match,1,"['tension', '##nar', '##rative']",3
+testnarrative,full_match,1,"['test', '##nar', '##rative']",3
+textnarrative,full_match,1,"['text', '##nar', '##rative']",3
+thatnarratives,full_match,1,"['that', '##nar', '##rative', '##s']",4
+thenarration,stem_match,1,"['then', '##ar', '##ration']",3
+sconceptofanarratorchangeandryan,stem_match,1,"['sc', '##on', '##ce', '##pt', '##of', '##ana', '##rra', '##tor', '##chang', '##ean', '##dry', '##an']",12
+shotnarrative,full_match,1,"['shot', '##nar', '##rative']",3
+slavenarratives,full_match,1,"['slave', '##nar', '##rative', '##s']",4
+snarration,stem_match,1,"['s', '##nar', '##ration']",3
+unnarrativity,stem_match,1,"['un', '##nar', '##rat', '##ivity']",4
+thenarrators,stem_match,1,"['then', '##ar', '##rator', '##s']",4
+thennarrative,full_match,1,"['then', '##nar', '##rative']",3
+thestudyhighlightshownarratives,full_match,1,"['the', '##st', '##udy', '##hi', '##gh', '##lights', '##how', '##nar', '##rative', '##s']",10
+theuseofnarrativesisalogicalandimportantstepinthedevelopmentofantistigmamessaging,full_match,1,"['the', '##use', '##of', '##nar', '##rative', '##sis', '##alo', '##gical', '##and', '##im', '##port', '##ants', '##te', '##pin', '##thed', '##eve', '##lo', '##pment', '##of', '##ant', '##ist', '##ig', '##ma', '##mes', '##sa', '##ging']",26
+archnarratives,full_match,1,"['arch', '##nar', '##rative', '##s']",4
+asnarrative,full_match,1,"['as', '##nar', '##rative']",3
+audionarrativity,stem_match,1,"['audio', '##nar', '##rat', '##ivity']",4
+ausstiegsnarrativ,stem_match,1,"['aus', '##sti', '##eg', '##s', '##nar', '##rat', '##iv']",7
+authorshipnarration,stem_match,1,"['authorship', '##nar', '##ration']",3
+authorsinfographicnarratives,full_match,1,"['authors', '##in', '##fo', '##graphic', '##nar', '##rative', '##s']",7
+autobiographicnarrative,full_match,1,"['auto', '##bio', '##graphic', '##nar', '##rative']",5
+1narrative,full_match,1,"['1', '##nar', '##rative']",3
+typesnarrative,full_match,1,"['types', '##nar', '##rative']",3
+thisnarrative,full_match,1,"['this', '##nar', '##rative']",3
+methodsnarratological,stem_match,1,"['methods', '##nar', '##rat', '##ological']",4
+heroesnarrators,stem_match,1,"['heroes', '##nar', '##rator', '##s']",4
+heteronarrative,full_match,1,"['het', '##eron', '##ar', '##rative']",4
+actionnarrative,full_match,1,"['action', '##nar', '##rative']",3
+agencynarratives,full_match,1,"['agency', '##nar', '##rative', '##s']",4
+alternarration,stem_match,1,"['alter', '##nar', '##ration']",3
+amultilayerednarrative,full_match,1,"['am', '##ult', '##ila', '##yer', '##ed', '##nar', '##rative']",7
+analysisorientalismotheringstereotypesnarrativeshumanitarian,full_match,1,"['analysis', '##ori', '##ental', '##ism', '##oth', '##ering', '##ster', '##eo', '##type', '##s', '##nar', '##rative', '##shu', '##mani', '##tarian']",15
+zoonarration,stem_match,1,"['zoo', '##nar', '##ration']",3
+œnarrateâ,stem_match,1,"['œ', '##nar', '##rate', '##a']",4
+ʻnarrativeʼ,full_match,1,"['ʻ', '##nar', '##rative', '##ʼ']",4
+ʼnarrative,full_match,1,"['ʼ', '##nar', '##rative']",3
+三國史記narrative,full_match,1,"['三', '國', '史', '[UNK]', 'narrative']",5
+travelnarrative,full_match,1,"['travel', '##nar', '##rative']",3
+worldviewnarrative,full_match,1,"['world', '##view', '##nar', '##rative']",4
+writenarrative,full_match,1,"['write', '##nar', '##rative']",3
+unnarrating,stem_match,1,"['un', '##nar', '##rating']",3
