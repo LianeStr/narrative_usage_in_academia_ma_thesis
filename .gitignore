@@ -30,6 +30,7 @@ data/enriched_V1/*
 !data/processed/.gitkeep
 .ipynb_checkpoints/
 data/sorted_k_dist/*.csv
+data/sorted_k_dist/*.zip
 data/sorted_k_dist/results_kdist_bertbase_sample/*
 data/sorted_k_dist/results_kdist_scibert_sample/*
 
