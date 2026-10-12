@@ -1,0 +1,8 @@
+{"timestamp_utc": "2026-06-30T09:00:45.150092+00:00", "processed_dir": "data/processed", "enriched_dir": "data/enriched/doi", "total_pending": 442, "total_hit": 95, "total_not_found": 347, "batches_written": 1}
+{"timestamp_utc": "2026-06-30T11:12:01.374548+00:00", "processed_dir": "data/processed", "enriched_dir": "data/enriched/doi", "total_pending": 316431, "total_hit": 314643, "total_not_found": 1788, "batches_written": 4}
+{"timestamp_utc": "2026-07-01T15:20:30.351251+00:00", "processed_dir": "data/processed", "enriched_dir": "data/enriched/doi", "total_pending": 1788, "total_hit": 1441, "total_not_found": 347, "batches_written": 4}
+{"timestamp_utc": "2026-07-01T15:51:50.885639+00:00", "processed_dir": "data/processed", "enriched_dir": "data/enriched/doi", "total_pending": 347, "total_hit": 0, "total_not_found": 347, "batches_written": 4}
+{"timestamp_utc": "2026-07-02T17:14:39.729796+00:00", "processed_dir": "data/processed", "enriched_dir": "data/enriched/doi", "total_pending": 100347, "total_hit": 99505, "total_not_found": 842, "batches_written": 4}
+{"timestamp_utc": "2026-07-02T17:19:11.090335+00:00", "processed_dir": "data/processed", "enriched_dir": "data/enriched/doi", "total_pending": 842, "total_hit": 491, "total_not_found": 351, "batches_written": 4}
+{"timestamp_utc": "2026-07-05T17:19:37.320632+00:00", "processed_dir": "data/processed", "enriched_dir": "data/enriched/doi", "total_pending": 29452, "total_hit": 27027, "total_not_found": 2425, "batches_written": 4}
+{"timestamp_utc": "2026-07-05T19:15:02.945612+00:00", "processed_dir": "data/processed", "enriched_dir": "data/enriched/doi", "total_pending": 3618, "total_hit": 912, "total_not_found": 2706, "batches_written": 4}
